@@ -1,0 +1,1373 @@
+/* ============================================= */
+/* FLAGSHIP.COM — HOJA DE ESTILOS GLOBAL         */
+/* Sitio hecho por: Jurado Flores Santiago       */
+/* @sarethjpg                                    */
+/* ============================================= */
+
+
+/* ============================================= */
+/* BLOQUE: Reset y normalización                 */
+/* ============================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ============================================= */
+/* BLOQUE: Escalado fluido global                */
+/* 1rem escala entre 9px y 16px según el ancho   */
+/* de pantalla → todo el sitio se adapta solo    */
+/* ============================================= */
+html {
+    font-size: clamp(9px, 0.833vw, 16px);
+    scroll-behavior: smooth;
+}
+
+
+/* ============================================= */
+/* BLOQUE: Fuentes locales (Magistral / Object)  */
+/* ============================================= */
+
+/* ---------- MAGISTRAL ---------- */
+
+/* Light 300 */
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-Light.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-Light.woff') format('woff'),
+         url('/fonts/magistral/Magistral-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-LightItalic.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-LightItalic.woff') format('woff'),
+         url('/fonts/magistral/Magistral-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Book 400 */
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-Book.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-Book.woff') format('woff'),
+         url('/fonts/magistral/Magistral-Book.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-BookItalic.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-BookItalic.woff') format('woff'),
+         url('/fonts/magistral/Magistral-BookItalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Medium 500 */
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-Medium.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-Medium.woff') format('woff'),
+         url('/fonts/magistral/Magistral-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-MediumItalic.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-MediumItalic.woff') format('woff'),
+         url('/fonts/magistral/Magistral-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold 700 */
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-Bold.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-Bold.woff') format('woff'),
+         url('/fonts/magistral/Magistral-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-BoldItalic.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-BoldItalic.woff') format('woff'),
+         url('/fonts/magistral/Magistral-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ExtraBold 800 */
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-ExtraBold.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-ExtraBold.woff') format('woff'),
+         url('/fonts/magistral/Magistral-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Magistral';
+    src: url('/fonts/magistral/Magistral-ExtraBoldItalic.woff2') format('woff2'),
+         url('/fonts/magistral/Magistral-ExtraBoldItalic.woff') format('woff'),
+         url('/fonts/magistral/Magistral-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ---------- OBJECT ---------- */
+/* Solo viene en .otf. Mapeo:
+   Regular → 400 normal
+   Slanted → 400 italic
+   Heavy   → 700 normal
+   HeavySlanted → 700 italic */
+
+@font-face {
+    font-family: 'Object';
+    src: url('/fonts/object/ObjectSansRegular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Object';
+    src: url('/fonts/object/ObjectSansSlanted.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Object';
+    src: url('/fonts/object/ObjectSansHeavy.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Object';
+    src: url('/fonts/object/ObjectSansHeavySlanted.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* ============================================= */
+/* BLOQUE: Variables globales                    */
+/* ============================================= */
+:root {
+    /* --- Colores de marca --- */
+    --color-morado-obscuro: #2b1b66;
+    --color-morado-claro:   #66558c;
+    --color-verde:          #7caa26;
+    --color-blanco:         #FFFFFF;
+    --color-negro:          #000000;
+
+    /* --- Colores de uso general --- */
+    --color-texto:          #3f3f3f;
+    --color-fondo:          #FFFFFF;
+
+    /* --- Familias tipográficas --- */
+    --fuente-principal:   'Magistral', sans-serif;
+    --fuente-secundaria:  'Object', sans-serif;
+    --fuente-terciaria:   'Montserrat', sans-serif;
+    --fuente-flecha:      'Oswald', sans-serif;
+
+    /* --- Alturas críticas (navbar) --- */
+    --altura-navbar:        7.4rem;
+    --altura-navbar-movil:  4.7rem;
+}
+
+
+/* ============================================= */
+/* BLOQUE: Estilos base del body                 */
+/* ============================================= */
+body {
+    font-family: var(--fuente-terciaria);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Encabezados --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-principal);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-morado-obscuro);
+}
+
+/* --- Párrafos --- */
+p {
+    font-family: var(--fuente-terciaria);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* --- Enlaces --- */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --- Media --- */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* --- Formularios --- */
+button,
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- Listas --- */
+ul,
+ol {
+    list-style: none;
+}
+
+
+/* ============================================= */
+/* BLOQUE: Animaciones al scroll (sistema base)  */
+/* Se activan agregando ".anim" + una variante   */
+/* (.anim-fade-up, etc.) al HTML.                */
+/* El JS les añade ".visible" al entrar al DOM.  */
+/* ============================================= */
+.anim {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+/* --- Variantes de dirección --- */
+.anim-fade-up    { transform: translateY(30px); }
+.anim-fade-down  { transform: translateY(-30px); }
+.anim-fade-left  { transform: translateX(-40px); }
+.anim-fade-right { transform: translateX(40px); }
+.anim-fade-in    { transform: none; }
+.anim-zoom       { transform: scale(0.94); }
+
+/* --- Estado activo (lo aplica JS al entrar al viewport) --- */
+.anim.visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* --- Stagger: retardos escalonados --- */
+.anim-delay-1 { transition-delay: 0.10s; }
+.anim-delay-2 { transition-delay: 0.20s; }
+.anim-delay-3 { transition-delay: 0.30s; }
+.anim-delay-4 { transition-delay: 0.40s; }
+.anim-delay-5 { transition-delay: 0.50s; }
+.anim-delay-6 { transition-delay: 0.60s; }
+
+
+/* ============================================= */
+/* BLOQUE: Accesibilidad — reduce motion         */
+/* ============================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .anim {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+/* ============================================= */
+/* BLOQUE: Scroll-margin de secciones con id     */
+/* Evita que la navbar fija tape el título al    */
+/* hacer autoscroll desde enlaces internos.      */
+/* ============================================= */
+section[id] {
+    scroll-margin-top: var(--altura-navbar);
+}
+
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Congela el escalado y reajusta la navbar      */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    :root {
+        --altura-navbar: var(--altura-navbar-movil);
+    }
+
+    section[id] {
+        scroll-margin-top: var(--altura-navbar-movil);
+    }
+}
+
+/* ============================================= */
+/* BLOQUE: Navbar                                */
+/* ============================================= */
+.navbar {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --navbar-margin-lateral:   2.5rem;   /* Separación de los extremos de la página */
+    --navbar-logo-ancho:       13rem;     /* Ancho del logo (define la altura de la navbar) */
+    --navbar-gap-derecha:      8rem;     /* Gap entre pestañas y grupo CTA */
+    --navbar-gap-pestanas:     4rem;   /* Gap horizontal entre pestañas */
+    --navbar-gap-cta:          2rem;     /* Gap entre botón y icono de WhatsApp */
+    --navbar-pestana-fuente:   1.1rem;   /* Tamaño de fuente de las pestañas */
+    --navbar-btn-fuente:       1rem;     /* Tamaño de fuente del botón */
+    --navbar-btn-padding-y:    0.2rem;   /* Padding vertical del botón */
+    --navbar-btn-padding-x:    2rem;   /* Padding horizontal del botón */
+    --navbar-whatsapp-size:    5.5rem;   /* Tamaño del icono de WhatsApp */
+
+    background-color: var(--color-blanco);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Clase dinámica (JS): oculta la navbar al hacer scroll hacia abajo */
+.navbar-oculta {
+    transform: translateY(-100%);
+}
+
+/* Contenedor general: aplica el margen lateral y distribuye los 3 bloques */
+.navbar-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 var(--navbar-margin-lateral);
+    /* Sin margin vertical → la altura la define el logo */
+}
+
+/* ============================================= */
+/* BLOQUE: Logo (izquierda)                      */
+/* ============================================= */
+.navbar-logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.navbar-logo {
+    width: var(--navbar-logo-ancho);
+    height: auto;
+    display: block;
+    margin: 1.5rem;
+}
+
+/* ============================================= */
+/* BLOQUE: Lado derecho (pestañas + CTA)         */
+/* ============================================= */
+.navbar-derecha {
+    display: flex;
+    align-items: center;
+    gap: var(--navbar-gap-derecha);
+}
+
+/* ============================================= */
+/* BLOQUE: Pestañas de navegación                */
+/* ============================================= */
+.navbar-pestanas {
+    display: flex;
+    align-items: center;
+    gap: var(--navbar-gap-pestanas);
+}
+
+.navbar-pestana {
+    font-family: var(--fuente-terciaria);
+    font-weight: 650;
+    color: var(--color-texto);
+    font-size: var(--navbar-pestana-fuente);
+    text-decoration: none;
+    position: relative;
+    padding: 0.4rem 0;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+/* Línea verde inferior: aparece del centro hacia los lados */
+.navbar-pestana::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.15rem;
+    background-color: var(--color-verde);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.navbar-pestana:hover {
+    color: var(--color-verde);
+}
+
+.navbar-pestana:hover::after {
+    transform: scaleX(1.1);
+    height: 0.3rem;
+}
+
+/* ============================================= */
+/* BLOQUE: Grupo CTA (botón + WhatsApp)          */
+/* ============================================= */
+.navbar-cta-grupo {
+    display: flex;
+    align-items: center;
+    gap: var(--navbar-gap-cta);
+    margin-right: 3rem;
+}
+
+/* Botón "Cotiza ahora" con degradado verde */
+.navbar-btn-cotiza {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--fuente-terciaria);
+    font-weight: 600;
+    color: var(--color-blanco);
+    font-size: var(--navbar-btn-fuente);
+    background: linear-gradient(to right, #76ba4d, #4cb648);
+    padding: var(--navbar-btn-padding-y) var(--navbar-btn-padding-x);
+    border-radius: 50rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-btn-cotiza:hover {
+    filter: brightness(1.08);
+    transform: scale(1.03);
+}
+
+/* Icono WhatsApp */
+.navbar-whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.navbar-whatsapp-link:hover {
+    transform: scale(1.1);
+}
+
+.navbar-whatsapp-icono {
+    width: var(--navbar-whatsapp-size);
+    height: auto;
+    display: block;
+}
+
+/* ============================================= */
+/* BLOQUE: Navbar — Botón hamburguesa            */
+/* Oculto en desktop, visible solo en móvil.     */
+/* ============================================= */
+.navbar-hamburguesa {
+    display: none;
+}
+
+
+/* ============================================= */
+/* BLOQUE: Navbar — RESPONSIVE MÓVIL (≤ 768px)   */
+/* Barra superior: logo + hamburguesa.           */
+/* Pestañas y CTA pasan a dropdown desplegable.  */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    /* ------------------------------------------------- */
+    /* Contenedor: reduce el margen lateral              */
+    /* ------------------------------------------------- */
+    .navbar-contenedor {
+        margin: 0 1.2rem;
+    }
+
+    /* Logo más compacto */
+    .navbar-logo {
+        width: 9rem;
+        margin: 0.6rem 0;
+    }
+
+    /* ------------------------------------------------- */
+    /* Botón hamburguesa                                 */
+    /* ------------------------------------------------- */
+    .navbar-hamburguesa {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 2.2rem;
+        height: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+        flex-shrink: 0;
+    }
+
+    .navbar-hamburguesa span {
+        display: block;
+        width: 100%;
+        height: 0.22rem;
+        background-color: var(--color-morado-obscuro);
+        border-radius: 0.125rem;
+        transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Transformación a "X" cuando el menú está abierto */
+    .navbar-hamburguesa.abierto span:nth-child(1) {
+        transform: translateY(0.64rem) rotate(45deg);
+        background-color: var(--color-verde);
+    }
+    .navbar-hamburguesa.abierto span:nth-child(2) {
+        opacity: 0;
+    }
+    .navbar-hamburguesa.abierto span:nth-child(3) {
+        transform: translateY(-0.64rem) rotate(-45deg);
+        background-color: var(--color-verde);
+    }
+
+    /* ------------------------------------------------- */
+    /* Bloque derecho → dropdown debajo de la navbar     */
+    /* ------------------------------------------------- */
+    .navbar-derecha {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-blanco);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+
+        /* Estado cerrado */
+        max-height: 0;
+        opacity: 0;
+        padding: 0 6%;
+        overflow: hidden;
+        pointer-events: none;
+
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+        border-top: 1px solid #f0f0f0;
+        transition: max-height 0.35s ease,
+                    opacity 0.3s ease,
+                    padding 0.35s ease;
+    }
+
+    /* Estado abierto (lo activa el JS) */
+    .navbar-derecha.menu-activo {
+        max-height: 80vh;
+        opacity: 1;
+        padding: 2rem 6%;
+        pointer-events: auto;
+    }
+
+    /* ------------------------------------------------- */
+    /* Pestañas apiladas verticalmente                   */
+    /* ------------------------------------------------- */
+    .navbar-pestanas {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        width: 100%;
+    }
+
+    .navbar-pestana {
+        font-size: 1.15rem;
+        padding: 0.3rem 0;
+        text-align: center;
+    }
+
+    /* ------------------------------------------------- */
+    /* Grupo CTA: separado con línea divisoria           */
+    /* ------------------------------------------------- */
+    .navbar-cta-grupo {
+        margin-right: 0;
+        gap: 1rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid #ececec;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar-btn-cotiza {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.8rem;
+    }
+
+    .navbar-whatsapp-icono {
+        width: 2.5rem;
+    }
+}
+
+/* ============================================= */
+/* BLOQUE: Sección Hero                          */
+/* ============================================= */
+.hero {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --hero-padding-izq:          4rem;      /* Separación del contenido con el borde izquierdo (desktop) */
+    --hero-max-titulo:           40rem;     /* Ancho máximo del título (controla dónde rompe) */
+    --hero-max-parrafo:          35rem;     /* Ancho máximo del párrafo (controla el salto de línea) */
+    --hero-gap-titulo-parrafo:   2.5rem;    /* Gap vertical entre título y párrafo */
+    --hero-gap-parrafo-boton:    5.5rem;      /* Gap vertical entre párrafo y botón */
+    --hero-titulo-size:          7.8rem;  /* Tamaño fluido del título */
+    --hero-parrafo-size:         1.7rem;    /* Tamaño del párrafo */
+    --hero-btn-size:             1.3rem;      /* Tamaño de fuente del botón */
+    --hero-btn-padding-y:        1rem;   /* Padding vertical del botón */
+    --hero-btn-padding-x:        5rem;      /* Padding horizontal del botón */
+    --hero-overlap:              4rem;      /* (solo móvil) Cuánto se meten los textos en la imagen */
+
+    position: relative;
+    width: 100%;
+    margin-top: var(--altura-navbar);       /* Compensa la navbar fija */
+    overflow: hidden;
+}
+
+/* ============================================= */
+/* BLOQUE: Wrapper de la imagen de fondo         */
+/* La imagen define la altura natural de la      */
+/* sección (en desktop)                          */
+/* ============================================= */
+.hero-imagen-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.hero-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ============================================= */
+/* BLOQUE: Contenido superpuesto (2 mitades)     */
+/* ============================================= */
+.hero-contenido {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* Mitad izquierda: contiene los textos */
+.hero-mitad-izq {
+    width: 50%;
+    display: flex;
+    align-items: center;         /* Centrado vertical del bloque de textos */
+    justify-content: flex-start; /* Alineado a la izquierda */
+    padding-left: var(--hero-padding-izq);
+}
+
+/* Mitad derecha: vacía, deja ver la imagen */
+.hero-mitad-der {
+    width: 50%;
+}
+
+/* ============================================= */
+/* BLOQUE: Bloque de textos (título+párrafo+btn) */
+/* ============================================= */
+.hero-textos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;     /* Alineación izquierda de los 3 elementos */
+    text-align: left;
+    max-width: 100%;
+    margin-left: 4rem;
+}
+
+/* ============================================= */
+/* BLOQUE: Título                                */
+/* ============================================= */
+.hero-titulo {
+    font-family: var(--fuente-principal);
+    font-style: italic;
+    font-weight: 700;
+    font-size: var(--hero-titulo-size);
+    line-height: 0.85;
+    text-align: left;
+    max-width: var(--hero-max-titulo);
+    margin-bottom: var(--hero-gap-titulo-parrafo);
+}
+
+/* Colores por línea */
+.hero-titulo-morado-obscuro {
+    color: var(--color-morado-obscuro);
+}
+/* Colores por línea */
+.hero-titulo-morado-claro {
+    color: var(--color-morado-claro);
+}
+
+.hero-titulo-verde {
+    color: var(--color-verde);
+}
+
+/* ============================================= */
+/* BLOQUE: Párrafo                               */
+/* ============================================= */
+.hero-parrafo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 550;
+    color: var(--color-texto);
+    font-size: var(--hero-parrafo-size);
+    line-height: 1;
+    text-align: left;
+    max-width: var(--hero-max-parrafo);
+    margin-bottom: var(--hero-gap-parrafo-boton);
+}
+
+/* ============================================= */
+/* BLOQUE: Botón "Ver productos"                 */
+/* ============================================= */
+.hero-btn {
+    display: inline-block;
+    background-color: var(--color-morado-claro);
+    color: var(--color-blanco);
+    font-family: var(--fuente-terciaria);
+    font-weight: 550;
+    font-size: var(--hero-btn-size);
+    padding: var(--hero-btn-padding-y) var(--hero-btn-padding-x);
+    border-radius: 50rem;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: var(--color-morado-obscuro);
+    transform: scale(1.03);
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* La sección se divide en 2:                    */
+/*  arriba → solo mitad derecha de la imagen     */
+/*           con degradado blanco hacia abajo    */
+/*  abajo  → textos centrados que se meten un    */
+/*           poco en la imagen                   */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-blanco);
+        overflow: visible;                  /* Permite el overlap del contenido sobre la imagen */
+    }
+
+    /* ------------------------------------------------- */
+    /* 1. Parte superior: imagen recortada a su mitad    */
+    /*    derecha + degradado blanco hacia abajo         */
+    /* ------------------------------------------------- */
+    .hero-imagen-wrapper {
+        position: relative;
+        width: 100%;
+        height: 55vh;
+        min-height: 22rem;
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Encuadre hacia la derecha: solo se ve la mitad derecha */
+        object-position: 87% center;
+    }
+
+    /* Degradado de blanco (abajo) a transparente (arriba) */
+    .hero-imagen-wrapper::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60%;
+        background: linear-gradient(
+            to top,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.85) 30%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* ------------------------------------------------- */
+    /* 2. Parte inferior: contenido centrado            */
+    /*    (con margin-top negativo para meterse en la    */
+    /*     parte desvanecida de la imagen)               */
+    /* ------------------------------------------------- */
+    .hero-contenido {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: calc(-1 * var(--hero-overlap));
+        padding: 0 6% 4rem 6%;
+        z-index: 2;
+    }
+
+    .hero-mitad-izq {
+        width: 100%;
+        padding: 0;
+        display: block;
+    }
+
+    /* Ocultamos la mitad derecha: ya no tiene sentido */
+    .hero-mitad-der {
+        display: none;
+    }
+
+    /* Textos: alineación centrada */
+    .hero-textos {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+        margin-left: 0rem;
+    }
+
+    /* ------------------------------------------------- */
+    /* 3. Jerarquía tipográfica ajustada                 */
+    /* ------------------------------------------------- */
+    .hero-titulo {
+        font-size: 3.5rem;
+        line-height: 0.9;
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-parrafo {
+        font-size: 1.3rem;
+        line-height: 1.45;
+        text-align: center;
+        max-width: 20rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-btn {
+        font-size: 1rem;
+        padding: 0.75rem 3rem;
+    }
+}
+
+/* ============================================= */
+/* BLOQUE: Sección Soluciones (encabezado+cards) */
+/* ============================================= */
+.seccion-soluciones {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --soluciones-padding-vertical:  4rem;    /* Separación vertical de la sección con las vecinas */
+    --soluciones-margin-lateral:    8rem;    /* Margen lateral del bloque del carrusel (mayor que el gap entre cards) */
+    --soluciones-gap-encabezado:    0.5rem;  /* Gap vertical entre subtítulo y título */
+    --soluciones-titulo-size:       3rem;    /* Tamaño del título principal */
+    --soluciones-subtitulo-size:    1.5rem;    /* Tamaño del subtítulo */
+    --carrusel-gap:                 3rem;  /* Gap horizontal entre cards */
+    --carrusel-card-ratio:          4 / 5;   /* Proporción de las cards (ancho / alto) */
+    --carrusel-card-titulo-size:    2rem;  /* Tamaño del título dentro de cada card */
+    --carrusel-flecha-size:         2rem;    /* Tamaño de las flechas laterales */
+    --carrusel-flecha-fuente:       1.8rem;  /* Tamaño de la flecha (glifo) */
+
+    background-color: var(--color-fondo);
+    width: 100%;
+    padding: var(--soluciones-padding-vertical) 0;
+}
+
+/* ============================================= */
+/* BLOQUE: Encabezado (subtítulo + título)       */
+/* ============================================= */
+.soluciones-encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    /* Alineación izquierda de los 2 elementos */
+    gap: var(--soluciones-gap-encabezado);
+    margin: 0.5rem 6rem;      /* Margin top/bottom 0.5rem + lateral 1.5rem */
+}
+
+.soluciones-subtitulo {
+    font-family: var(--fuente-secundaria);
+    font-weight: 400;
+    color: var(--color-texto);
+    font-size: var(--soluciones-subtitulo-size);
+    letter-spacing: 0.08em;
+    text-align: left;
+}
+
+.soluciones-titulo {
+    font-family: var(--fuente-principal);
+    font-weight: 600;
+    font-size: var(--soluciones-titulo-size);
+    line-height: 1.1;
+    text-align: left;
+}
+
+/* Los dos spans en el mismo renglón cuando quepan */
+.soluciones-titulo-morado {
+    color: var(--color-morado-obscuro);
+}
+
+.soluciones-titulo-verde {
+    color: var(--color-verde);
+}
+
+/* ============================================= */
+/* BLOQUE: Contenedor del carrusel                */
+/* Aloja: flecha izq, viewport, flecha der.       */
+/* Las flechas van en absoluto sobre el contenedor. */
+/* ============================================= */
+.soluciones-carrusel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 var(--soluciones-margin-lateral);
+    margin-top: 2rem;           /* Separación con el encabezado */
+}
+
+/* ============================================= */
+/* BLOQUE: Viewport (recorta las cards que       */
+/* no deben verse fuera de la ventana)           */
+/* ============================================= */
+.carrusel-viewport {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* ============================================= */
+/* BLOQUE: Track (pista que agrupa las cards)    */
+/* Se desplaza con transform desde el JS.        */
+/* ============================================= */
+.carrusel-track {
+    display: flex;
+    gap: var(--carrusel-gap);
+    width: 100%;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+/* ============================================= */
+/* BLOQUE: Cada card                             */
+/* 3 visibles en desktop → ancho =              */
+/*   (100% - 2*gap) / 3                         */
+/* Con flex-shrink: 0 las cards se desbordan    */
+/* del track y el viewport las recorta.         */
+/* ============================================= */
+.carrusel-card {
+    flex: 0 0 auto;
+    width: calc((100% - 2 * var(--carrusel-gap)) / 3);
+    position: relative;
+    aspect-ratio: var(--carrusel-card-ratio);
+    overflow: hidden;
+}
+
+/* Imagen que llena toda la card */
+.carrusel-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Título sobre la imagen: abajo, centrado */
+.carrusel-card-titulo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0.8rem;
+    font-family: var(--fuente-terciaria);
+    font-weight: 700;
+    font-size: var(--carrusel-card-titulo-size);
+    color: var(--color-morado-obscuro);
+    text-align: center;
+    line-height: 3;
+}
+
+/* ============================================= */
+/* BLOQUE: Flechas laterales                     */
+/* Centradas verticalmente, fondo negro          */
+/* translúcido para distinguirse de la imagen.   */
+/* ============================================= */
+.carrusel-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    width: var(--carrusel-flecha-size);
+    height: var(--carrusel-flecha-size);
+
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--color-blanco);
+    border: none;
+    cursor: pointer;
+
+    font-family: var(--fuente-flecha);
+    font-weight: 300;
+    font-size: var(--carrusel-flecha-fuente);
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    user-select: none;
+}
+
+.carrusel-flecha:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.carrusel-flecha-izq {
+    left: 0.5rem;
+}
+
+.carrusel-flecha-der {
+    right: 0.5rem;
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Encabezado centrado + 1 card por vista.       */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .seccion-soluciones {
+        --soluciones-padding-vertical:  3rem;
+        --soluciones-margin-lateral:    1rem;
+        --soluciones-titulo-size:       2rem;
+        --soluciones-subtitulo-size:    0.9rem;
+        --carrusel-card-titulo-size:    1.1rem;
+        --carrusel-flecha-size:         2.4rem;
+        --carrusel-flecha-fuente:       1.4rem;
+    }
+
+    /* Encabezado centrado */
+    .soluciones-encabezado {
+        align-items: center;
+        text-align: center;
+        margin: 0.5rem 1.5rem;
+    }
+
+    .soluciones-subtitulo,
+    .soluciones-titulo {
+        text-align: center;
+    }
+
+    .soluciones-subtitulo {
+    font-family: var(--fuente-secundaria);
+    font-weight: 500;
+    font-size: 1.2rem;
+    }
+
+    /* 1 card por vista: ocupa el 100% del viewport */
+    .carrusel-card {
+        width: 100%;
+    }
+}
+
+/* ============================================= */
+/* BLOQUE: Sección Hero 2 (Eventos)              */
+/* Réplica estructural del Hero 1 pero con       */
+/* subtítulo + título + párrafo (sin botón).     */
+/* ============================================= */
+.hero-dos {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --hero-dos-padding-izq:           4rem;    /* Separación del contenido con el borde izquierdo (desktop) */
+    --hero-dos-max-subtitulo:         28rem;   /* Ancho máximo del subtítulo */
+    --hero-dos-max-titulo:            40rem;   /* Ancho máximo del título (controla dónde rompe) */
+    --hero-dos-max-parrafo:           39rem;   /* Ancho máximo del párrafo (controla el salto de línea) */
+    --hero-dos-gap-subtitulo-titulo:  2.5rem;    /* Gap vertical entre subtítulo y título */
+    --hero-dos-gap-titulo-parrafo:    2.5rem;  /* Gap vertical entre título y párrafo */
+    --hero-dos-subtitulo-size:        2rem;  /* Tamaño del subtítulo */
+    --hero-dos-titulo-size:           5.5rem;  /* Tamaño del título */
+    --hero-dos-parrafo-size:          1.5rem;  /* Tamaño del párrafo */
+    --hero-dos-overlap:               4rem;    /* (solo móvil) Cuánto se meten los textos en la imagen */
+    --hero-dos-bg-pos-x:              75%;     /* (solo móvil) Posición horizontal de la imagen */
+
+    position: relative;
+    width: 100%;
+    margin-top: var(--altura-navbar);   /* Compensa la navbar fija */
+    overflow: hidden;
+}
+
+/* ============================================= */
+/* BLOQUE: Wrapper de la imagen de fondo         */
+/* ============================================= */
+.hero-dos-imagen-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.hero-dos-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ============================================= */
+/* BLOQUE: Contenido superpuesto (2 mitades)     */
+/* ============================================= */
+.hero-dos-contenido {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* Mitad izquierda: contiene los textos */
+.hero-dos-mitad-izq {
+    width: 50%;
+    display: flex;
+    align-items: center;         /* Centrado vertical del bloque de textos */
+    justify-content: flex-start; /* Alineado a la izquierda */
+    padding-left: var(--hero-dos-padding-izq);
+}
+
+/* Mitad derecha: vacía, deja ver la imagen */
+.hero-dos-mitad-der {
+    width: 50%;
+}
+
+/* ============================================= */
+/* BLOQUE: Bloque de textos                      */
+/* (subtítulo + título + párrafo)                */
+/* ============================================= */
+.hero-dos-textos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;     /* Alineación izquierda de los 3 elementos */
+    text-align: left;
+    max-width: 100%;
+    margin-left: 4rem;
+}
+
+/* ============================================= */
+/* BLOQUE: Subtítulo                             */
+/* ============================================= */
+.hero-dos-subtitulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-morado-obscuro);
+    font-size: var(--hero-dos-subtitulo-size);
+    line-height: 1.3;
+    letter-spacing: 0.05rem;
+    text-align: left;
+    max-width: var(--hero-dos-max-subtitulo);
+    margin-bottom: var(--hero-dos-gap-subtitulo-titulo);
+}
+
+/* ============================================= */
+/* BLOQUE: Título (bicolor)                      */
+/* ============================================= */
+.hero-dos-titulo {
+    font-family: var(--fuente-principal);
+    font-style: italic;
+    font-weight: 700;
+    font-size: var(--hero-dos-titulo-size);
+    line-height: 0.85;
+    text-align: left;
+    max-width: var(--hero-dos-max-titulo);
+    margin-bottom: var(--hero-dos-gap-titulo-parrafo);
+}
+
+/* Los dos spans se apilan uno debajo del otro */
+.hero-dos-titulo-morado,
+.hero-dos-titulo-verde {
+    display: block;
+}
+
+.hero-dos-titulo-morado {
+    color: var(--color-morado-obscuro);
+}
+
+.hero-dos-titulo-verde {
+    color: var(--color-verde);
+}
+
+/* ============================================= */
+/* BLOQUE: Párrafo                               */
+/* ============================================= */
+.hero-dos-parrafo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-morado-obscuro);
+    font-size: var(--hero-dos-parrafo-size);
+    line-height: 1.2;
+    text-align: left;
+    max-width: var(--hero-dos-max-parrafo);
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Mismo comportamiento que el Hero 1:           */
+/*  arriba → mitad derecha de la imagen con      */
+/*           degradado blanco hacia abajo        */
+/*  abajo  → textos centrados con overlap        */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .hero-dos {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-blanco);
+        overflow: visible;               /* Permite el overlap del contenido sobre la imagen */
+    }
+
+
+    /* ------------------------------------------------- */
+    /* 1. Parte superior: imagen + degradado             */
+    /* ------------------------------------------------- */
+    .hero-dos-imagen-wrapper {
+        position: relative;
+        width: 100%;
+        height: 55vh;
+        min-height: 22rem;
+        overflow: hidden;
+    }
+
+    .hero-dos-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: var(--hero-dos-bg-pos-x) center;
+    }
+
+    /* Degradado de blanco (abajo) a transparente (arriba) */
+    .hero-dos-imagen-wrapper::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60%;
+        background: linear-gradient(
+            to top,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.85) 30%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* ------------------------------------------------- */
+    /* 2. Parte inferior: contenido centrado con overlap */
+    /* ------------------------------------------------- */
+    .hero-dos-contenido {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: calc(-1 * var(--hero-dos-overlap));
+        padding: 0 6% 4rem 6%;
+        z-index: 2;
+    }
+
+    .hero-dos-mitad-izq {
+        width: 100%;
+        padding: 0;
+        display: block;
+    }
+
+    /* Ocultamos la mitad derecha: ya no tiene sentido */
+    .hero-dos-mitad-der {
+        display: none;
+    }
+
+    /* Textos: alineación centrada */
+    .hero-dos-textos {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    /* ------------------------------------------------- */
+    /* 3. Jerarquía tipográfica ajustada                 */
+    /* ------------------------------------------------- */
+    .hero-dos-subtitulo {
+        font-size: 1rem;
+        line-height: 1.3;
+        letter-spacing: 0.04em;
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .hero-dos-titulo {
+        font-size: 3.5rem;
+        line-height: 0.9;
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-dos-parrafo {
+        font-size: 1rem;
+        line-height: 1.45;
+        text-align: center;
+        max-width: 22rem;
+    }
+}

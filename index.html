@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flagship — Descripción breve del sitio.">
+    <meta name="author" content="Jurado Flores Santiago @sarethjpg">
+
+    <!--UNA PAGINA HECHA POR JURADO SANTIAGO @SARETHJPG-->
+    <title>Flagship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+    <nav class="navbar" id="navbar">
+
+        <!-- Contenedor general: aplica margen lateral y alinea los 3 bloques -->
+        <div class="navbar-contenedor">
+
+            <!-- ---------- BLOQUE 1: LOGO (izquierda) ---------- -->
+            <a href="index.html" class="navbar-logo-link">
+                <img src="imgs/logo.webp" alt="Flagship" class="navbar-logo">
+            </a>
+
+            <!-- ---------- BOTÓN HAMBURGUESA (solo móvil) ---------- -->
+            <button class="navbar-hamburguesa"
+                    id="navbar-hamburguesa"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="navbar-derecha">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- ---------- BLOQUE 2 Y 3: lado derecho ---------- -->
+            <!-- En móvil se convierte en menú desplegable              -->
+            <div class="navbar-derecha" id="navbar-derecha">
+
+                <!-- BLOQUE 2: Pestañas de navegación -->
+                <nav class="navbar-pestanas" aria-label="Navegación principal">
+                    <a href="#inicio"    class="navbar-pestana">Inicio</a>
+                    <a href="#nosotros"  class="navbar-pestana">Nosotros</a>
+                    <a href="#productos" class="navbar-pestana">Productos</a>
+                    <a href="#contacto"  class="navbar-pestana">Contacto</a>
+                </nav>
+
+                <!-- BLOQUE 3: Grupo CTA (botón degradado + icono WhatsApp) -->
+                <div class="navbar-cta-grupo">
+
+                    <!-- Botón "Cotiza ahora" con degradado verde -->
+                    <a href="https://wa.me/525555555555?text=Hola!%20quiero%20hacer%20una%20cotizaci%C3%B3n"
+                       class="navbar-btn-cotiza"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Cotiza ahora por WhatsApp">
+                        Cotiza ahora →
+                    </a>
+
+                    <!-- Icono WhatsApp -->
+                    <a href="https://wa.me/525555555555?text=Hola!%20quiero%20hacer%20una%20cotizaci%C3%B3n"
+                       class="navbar-whatsapp-link"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Escríbenos por WhatsApp">
+                        <img src="imgs/whatsapp_verde.svg" alt="WhatsApp" class="navbar-whatsapp-icono">
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+    <!-- Fin de la Navbar -->
+
+    <!-- =========================================
+         SECCIÓN: HERO
+    ========================================= -->
+    <section class="hero" id="hero">
+
+        <!-- Wrapper de la imagen: en desktop no afecta el layout,
+             en móvil recibe el degradado blanco hacia abajo -->
+        <div class="hero-imagen-wrapper">
+            <img src="imgs/banner_1.webp"
+                 alt="Flagship — impresión y exhibición"
+                 class="hero-bg"
+                 loading="eager">
+        </div>
+
+        <!-- Contenido superpuesto sobre la imagen -->
+        <div class="hero-contenido">
+
+            <!-- Mitad izquierda: título + párrafo + botón -->
+            <div class="hero-mitad-izq">
+                <div class="hero-textos">
+
+                    <!-- Título (3 líneas forzadas con <br>) -->
+                    <h1 class="hero-titulo">
+                        <span class="hero-titulo-morado-obscuro">Tu marca</span><br>
+                        <span class="hero-titulo-verde">en todas</span><br>
+                        <span class="hero-titulo-morado-claro">partes</span>
+                    </h1>
+
+                    <!-- Párrafo -->
+                    <p class="hero-parrafo">
+                        Soluciones de impresión y exhibición para negocios, ferias y eventos.
+                    </p>
+
+                    <!-- Botón -->
+                    <a href="#productos" class="hero-btn">Ver productos</a>
+
+                </div>
+            </div>
+
+            <!-- Mitad derecha: vacía (deja ver la mitad derecha de la imagen) -->
+            <div class="hero-mitad-der"></div>
+
+        </div>
+
+    </section>
+    <!-- Fin de la Sección Hero -->
+
+    <!-- =========================================
+         SECCIÓN: SOLUCIONES (con carrusel)
+    ========================================= -->
+    <section class="seccion-soluciones" id="productos">
+
+        <!-- Encabezado: subtítulo + título -->
+        <div class="soluciones-encabezado">
+            <p class="soluciones-subtitulo">NUESTROS PRODUCTOS</p>
+            <h2 class="soluciones-titulo">
+                <span class="soluciones-titulo-morado">Soluciones para</span>
+                <span class="soluciones-titulo-verde">cada necesidad</span>
+            </h2>
+        </div>
+
+        <!-- Contenedor del carrusel -->
+        <div class="soluciones-carrusel">
+
+            <!-- Flecha izquierda (anterior) -->
+            <button class="carrusel-flecha carrusel-flecha-izq"
+                    id="carrusel-flecha-izq"
+                    aria-label="Card anterior">&lt;</button>
+
+            <!-- Viewport: la ventana que recorta las cards que se salen -->
+            <div class="carrusel-viewport">
+                <div class="carrusel-track" id="carrusel-track">
+
+                    <!-- CARD 1 -->
+                    <div class="carrusel-card">
+                        <img src="imgs/banner_flag.webp" alt="Banner flag" class="carrusel-card-img" loading="lazy">
+                        <p class="carrusel-card-titulo">Banner flag</p>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="carrusel-card">
+                        <img src="imgs/banner_arana.webp" alt="Banner araña" class="carrusel-card-img" loading="lazy">
+                        <p class="carrusel-card-titulo">Banner araña</p>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="carrusel-card">
+                        <img src="imgs/roll_up.webp" alt="Roll Up" class="carrusel-card-img" loading="lazy">
+                        <p class="carrusel-card-titulo">Roll Up</p>
+                    </div>
+
+                    <!-- CARD 4 (provisional — duplicado de Card 1) -->
+                    <div class="carrusel-card">
+                        <img src="imgs/banner_flag.webp" alt="Banner flag" class="carrusel-card-img" loading="lazy">
+                        <p class="carrusel-card-titulo">Banner flag</p>
+                    </div>
+
+                    <!-- CARD 5 (provisional — duplicado de Card 2) -->
+                    <div class="carrusel-card">
+                        <img src="imgs/banner_arana.webp" alt="Banner araña" class="carrusel-card-img" loading="lazy">
+                        <p class="carrusel-card-titulo">Banner araña</p>
+                    </div>
+
+                    <!-- CARD 6 (provisional — duplicado de Card 3) -->
+                    <div class="carrusel-card">
+                        <img src="imgs/roll_up.webp" alt="Roll Up" class="carrusel-card-img" loading="lazy">
+                        <p class="carrusel-card-titulo">Roll Up</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Flecha derecha (siguiente) -->
+            <button class="carrusel-flecha carrusel-flecha-der"
+                    id="carrusel-flecha-der"
+                    aria-label="Card siguiente">&gt;</button>
+
+        </div>
+
+    </section>
+    <!-- Fin de la Sección Soluciones -->
+
+    <!-- =========================================
+         SECCIÓN: HERO 2 (Eventos)
+    ========================================= -->
+    <section class="hero-dos" id="nosotros">
+
+        <!-- Wrapper de la imagen: en desktop no afecta el layout,
+             en móvil recibe el degradado blanco hacia abajo -->
+        <div class="hero-dos-imagen-wrapper">
+            <img src="imgs/banner_2.webp"
+                 alt="Flagship — Eventos que dejan huella"
+                 class="hero-dos-bg"
+                 loading="lazy">
+        </div>
+
+        <!-- Contenido superpuesto sobre la imagen -->
+        <div class="hero-dos-contenido">
+
+            <!-- Mitad izquierda: subtítulo + título + párrafo -->
+            <div class="hero-dos-mitad-izq">
+                <div class="hero-dos-textos">
+
+                    <!-- Subtítulo -->
+                    <p class="hero-dos-subtitulo">
+                        MARCAS QUE DESTACAN EN GRANDES MOMENTOS
+                    </p>
+
+                    <!-- Título (bicolor, en una sola línea semántica) -->
+                    <h2 class="hero-dos-titulo">
+                        <span class="hero-dos-titulo-morado">Eventos que</span>
+                        <span class="hero-dos-titulo-verde">dejan huella</span>
+                    </h2>
+
+                    <!-- Párrafo -->
+                    <p class="hero-dos-parrafo">
+                        Desde un pequeño negocio hasta un gran evento, te ayudamos a que tu marca se vea profesional, atractiva y en todas partes.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- Mitad derecha: vacía (deja ver la mitad derecha de la imagen) -->
+            <div class="hero-dos-mitad-der"></div>
+
+        </div>
+
+    </section>
+    <!-- Fin de la Sección Hero 2 -->
+
+</body>
+</html>

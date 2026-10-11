@@ -1762,3 +1762,294 @@ section[id] {
         max-width: 22rem;
     }
 }
+
+/* ============================================= */
+/* BLOQUE: Sección Proceso                       */
+/* Encabezado + 4 grupos alternados con next.svg */
+/* ============================================= */
+.seccion-proceso {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --proceso-padding-vertical:        4rem;      /* Padding vertical de la sección */
+    --proceso-padding-lateral:         6rem;      /* Padding lateral de la sección */
+    --proceso-gap-encabezado-arreglo:  8rem;      /* Gap entre el encabezado y el arreglo */
+
+    --proceso-titulo-size:             3.8rem;    /* Tamaño del título principal */
+    --proceso-subtitulo-size:          2rem;      /* Tamaño del subtítulo */
+    --proceso-gap-titulo-subtitulo:    0.5rem;    /* Gap entre título y subtítulo */
+    --proceso-max-subtitulo:           75rem;     /* Max width del subtítulo */
+
+    --proceso-gap-arrreglo:            5rem;    /* Gap horizontal entre todos los elementos del arreglo */
+    --proceso-gap-img-detalle:         1.5rem;    /* Gap vertical entre imagen y círculo/título dentro de cada grupo */
+    --proceso-gap-circulo-titulo:      1rem;      /* Gap horizontal entre círculo y su título */
+    --proceso-grupo-max-width:         14rem;     /* Max width del grupo (controla el salto del título) */
+
+    --proceso-img-size:                10rem;      /* Tamaño (ancho=alto) de las imágenes de los grupos */
+    --proceso-next-size:               4rem;      /* Tamaño de las imágenes next.svg */
+    --proceso-circulo-size:            2.5rem;    /* Diámetro del círculo */
+    --proceso-circulo-fuente:          1.2rem;    /* Tamaño del número dentro del círculo */
+    --proceso-grupo-titulo-size:       1.4rem;   /* Tamaño del título dentro de cada grupo */
+
+    --proceso-grupo4-offset:           1.5rem;    /* Empuja el detalle del grupo 4 a la derecha (solo grupo 4) */
+
+    background-color: var(--color-fondo);
+    width: 100%;
+    padding: var(--proceso-padding-vertical) var(--proceso-padding-lateral);
+    display: flex;
+    flex-direction: column;
+    gap: var(--proceso-gap-encabezado-arreglo);
+}
+
+/* ============================================= */
+/* BLOQUE: Encabezado (título + subtítulo)       */
+/* ============================================= */
+.proceso-encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--proceso-gap-titulo-subtitulo);
+}
+
+.proceso-titulo {
+    font-family: var(--fuente-principal);
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--proceso-titulo-size);
+    line-height: 1.1;
+    text-align: left;
+}
+
+.proceso-titulo-morado {
+    color: var(--color-morado-obscuro);
+}
+
+.proceso-titulo-verde {
+    color: var(--color-verde);
+}
+
+.proceso-subtitulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-texto);
+    font-size: var(--proceso-subtitulo-size);
+    line-height: 1.4;
+    text-align: left;
+    max-width: var(--proceso-max-subtitulo);
+}
+
+/* ============================================= */
+/* BLOQUE: Wrapper del arreglo (centra el        */
+/* arreglo horizontal y verticalmente)           */
+/* ============================================= */
+.proceso-arrreglo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* ============================================= */
+/* BLOQUE: Arreglo principal                     */
+/* Grid de 7 columnas x 2 filas con subgrid:     */
+/* - Fila 1: imágenes y next.svg                 */
+/* - Fila 2: círculos + títulos                  */
+/* Los grupos usan subgrid → todos los          */
+/* elementos primos quedan a la misma altura.    */
+/* ============================================= */
+.proceso-arrreglo {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: auto auto;
+    column-gap: var(--proceso-gap-arrreglo);
+    row-gap: var(--proceso-gap-img-detalle);
+    align-items: start;
+    justify-items: center;
+}
+
+/* Posicionamiento explícito de los 7 hijos alternos.
+   Fuerza el orden: grupo | next | grupo | next | ... */
+.proceso-arrreglo > .proceso-grupo:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+.proceso-arrreglo > .proceso-next:nth-child(2)  { grid-column: 2; grid-row: 1; }
+.proceso-arrreglo > .proceso-grupo:nth-child(3) { grid-column: 3; grid-row: 1 / 3; }
+.proceso-arrreglo > .proceso-next:nth-child(4)  { grid-column: 4; grid-row: 1; }
+.proceso-arrreglo > .proceso-grupo:nth-child(5) { grid-column: 5; grid-row: 1 / 3; }
+.proceso-arrreglo > .proceso-next:nth-child(6)  { grid-column: 6; grid-row: 1; }
+.proceso-arrreglo > .proceso-grupo:nth-child(7) { grid-column: 7; grid-row: 1 / 3; }
+
+/* ============================================= */
+/* BLOQUE: Cada grupo (imagen + círculo + título)*/
+/* ============================================= */
+.proceso-grupo {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    max-width: var(--proceso-grupo-max-width);
+}
+
+/* Imagen del grupo (cuadrada, tamaño fijo) */
+.proceso-grupo-img {
+    grid-row: 1;
+    justify-self: center;
+    align-self: start;
+    width: var(--proceso-img-size);
+    height: var(--proceso-img-size);
+    object-fit: contain;
+    display: block;
+}
+
+/* ============================================= */
+/* BLOQUE: Detalle (círculo + título)            */
+/* ============================================= */
+.proceso-grupo-detalle {
+    grid-row: 2;
+    align-self: stretch;                /* Ocupa toda la altura de la fila 2 */
+    display: flex;
+    align-items: center;                /* Centra verticalmente el círculo y el título */
+    justify-content: center;
+    gap: var(--proceso-gap-circulo-titulo);
+    width: 100%;
+}
+
+/* Círculo con número */
+.proceso-circulo {
+    flex-shrink: 0;
+    width: var(--proceso-circulo-size);
+    height: var(--proceso-circulo-size);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blanco);
+    font-family: var(--fuente-terciaria);
+    font-weight: 700;
+    font-size: var(--proceso-circulo-fuente);
+    line-height: 1;
+}
+
+/* Colores de cada círculo (por posición en el arreglo) */
+.proceso-arrreglo > .proceso-grupo:nth-child(1) .proceso-circulo { background-color: #673bae; }
+.proceso-arrreglo > .proceso-grupo:nth-child(3) .proceso-circulo { background-color: #2279da; }
+.proceso-arrreglo > .proceso-grupo:nth-child(5) .proceso-circulo { background-color: #22c2da; }
+.proceso-arrreglo > .proceso-grupo:nth-child(7) .proceso-circulo { background-color: #5faf3c; }
+
+/* Título del grupo: alineado a la izquierda, ocupa el espacio restante */
+.proceso-grupo-titulo {
+    flex: 0 1 auto;
+    font-family: var(--fuente-terciaria);
+    font-weight: 800;
+    color: var(--color-morado-obscuro);
+    font-size: var(--proceso-grupo-titulo-size);
+    line-height: 1.2;
+    text-align: left;
+}
+
+.proceso-arrreglo > .proceso-grupo:nth-child(7) .proceso-grupo-detalle {
+    padding-left: var(--proceso-grupo4-offset);
+}
+
+/* ============================================= */
+/* BLOQUE: Flechas next.svg entre grupos         */
+/* Centradas verticalmente en la fila 1 → a la   */
+/* misma altura que el centro de las imágenes.   */
+/* ============================================= */
+.proceso-next {
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    width: var(--proceso-next-size);
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Encabezado centrado + arreglo en pila.        */
+/* Las next rotan 90deg para apuntar hacia abajo. */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .seccion-proceso {
+        --proceso-padding-vertical:        3rem;
+        --proceso-padding-lateral:         1.5rem;
+        --proceso-gap-encabezado-arreglo:  3rem;
+
+        --proceso-titulo-size:             2rem;
+        --proceso-subtitulo-size:          1rem;
+        --proceso-max-subtitulo:           22rem;
+
+        --proceso-gap-arrreglo-movil:      2rem;    /* Gap vertical entre grupos y next en la pila */
+        --proceso-gap-img-detalle:         1rem;
+        --proceso-img-size:                4.5rem;
+        --proceso-next-size:               1.8rem;
+        --proceso-circulo-size:            2.2rem;
+        --proceso-circulo-fuente:          1rem;
+        --proceso-grupo-titulo-size:       1.05rem;
+        --proceso-grupo-max-width:         100%;
+    }
+
+    /* Encabezado centrado */
+    .proceso-encabezado {
+        align-items: center;
+        text-align: center;
+    }
+
+    .proceso-titulo,
+    .proceso-subtitulo {
+        text-align: center;
+    }
+
+    .proceso-subtitulo {
+        text-align: justify;
+        text-align-last: center;
+    }
+
+    /* Arreglo en pila */
+    .proceso-arrreglo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: var(--proceso-gap-arrreglo-movil);
+        column-gap: 0;
+    }
+
+
+    /* Grupos: columna, sin subgrid */
+    .proceso-grupo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .proceso-grupo-img {
+        align-self: center;
+        justify-self: center;
+    }
+
+    /* Detalle: círculo + título alineados a la izquierda,
+       pero el bloque completo centrado respecto a la imagen */
+    .proceso-grupo-detalle {
+        justify-content: flex-start;
+        width: fit-content;                              /* ← se ajusta al ancho real de su contenido */
+        margin: var(--proceso-gap-img-detalle) auto 0 auto;  /* ← auto lo centra horizontalmente */
+        padding-left: 0;                                 /* ← anula el offset de desktop */
+    }
+    
+        /* Anula el padding del grupo 4 en móvil */
+    .proceso-arrreglo > .proceso-grupo:nth-child(7) .proceso-grupo-detalle {
+        padding-left: 0;
+    }
+    
+    /* Título del grupo alineado a la izquierda dentro de su espacio */
+    .proceso-grupo-titulo {
+        text-align: left;
+        max-width: 10rem;
+    }
+
+    /* Flechas next rotadas para apuntar hacia abajo */
+    .proceso-next {
+        transform: rotate(90deg);
+    }
+}

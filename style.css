@@ -170,6 +170,15 @@ html {
     font-display: swap;
 }
 
+/* ---------- SMILE MOON ---------- */
+@font-face {
+    font-family: 'Smile Moon';
+    src: url('fonts/smile_moon/smile_moon.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 /* ============================================= */
 /* BLOQUE: Variables globales                    */
@@ -178,12 +187,12 @@ html {
     /* --- Colores de marca --- */
     --color-morado-obscuro: #2b1b66;
     --color-morado-claro:   #66558c;
-    --color-verde:          #7caa26;
+    --color-verde:          #5faf3c;
     --color-blanco:         #FFFFFF;
     --color-negro:          #000000;
 
     /* --- Colores de uso general --- */
-    --color-texto:          #3f3f3f;
+    --color-texto:          #434343;
     --color-fondo:          #FFFFFF;
 
     /* --- Familias tipográficas --- */
@@ -753,7 +762,7 @@ section[id] {
 }
 
 .hero-titulo-verde {
-    color: var(--color-verde);
+    color: #7caa26;
 }
 
 /* ============================================= */
@@ -761,7 +770,7 @@ section[id] {
 /* ============================================= */
 .hero-parrafo {
     font-family: var(--fuente-terciaria);
-    font-weight: 550;
+    font-weight: 500;
     color: var(--color-texto);
     font-size: var(--hero-parrafo-size);
     line-height: 1;
@@ -1124,6 +1133,389 @@ section[id] {
 }
 
 /* ============================================= */
+/* BLOQUE: Sección ¿Por qué elegir Flagship?     */
+/* 2 mitades: contenido (izq) + imagen (der).    */
+/* ============================================= */
+.seccion-elegir {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+
+    --elegir-imagen-ancho:             40%;       /* Ancho del contenedor absoluto de la imagen. Súbelo para agrandarla */
+    --elegir-split-izq:                70%;       /* Ancho mitad izquierda (resto = derecha). Cambia a 65%/75% etc. */
+    --elegir-padding-izq:              6rem;      /* Padding izquierdo del contenido */
+    --elegir-padding-der:              3rem;      /* Padding entre el contenido y la imagen */
+    --elegir-padding-vertical:         0rem;      /* Padding vertical de la sección */
+    --elegir-gap-textos-grupos:        4rem;      /* Gap vertical entre (título+subtítulo) y los 4 grupos */
+
+    --elegir-titulo-size:              5.8rem;    /* Tamaño del título principal */
+    --elegir-gap-titulo-subtitulo:     2rem;    /* Gap entre título y subtítulo principal */
+    --elegir-subtitulo-size:           2.1rem;    /* Tamaño del subtítulo principal */
+    --elegir-max-subtitulo:            47rem;     /* Max width del subtítulo principal */
+
+    --elegir-gap-grupos:               1rem;      /* Gap horizontal entre los 4 grupos */
+    --elegir-gap-grupo-vertical:       1rem;      /* Gap vertical entre elementos DENTRO de cada grupo (igual para todos) */
+    --elegir-grupo-titulo-size:        1.5rem;   /* Tamaño del título de cada grupo */
+    --elegir-grupo-subtitulo-size:     1rem;      /* Tamaño del subtítulo de cada grupo */
+    --elegir-max-titulo-grupo:         12rem;     /* Max width de los títulos de grupo */
+    --elegir-max-subtitulo-grupo:      11rem;     /* Max width de los subtítulos de grupo */
+
+    --elegir-imagen-padding-top:       0rem;      /* Espacio mínimo entre el borde superior de la sección y la imagen */
+
+    background-color: var(--color-fondo);
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: stretch;                          /* Ambas mitades misma altura */
+    padding: var(--elegir-padding-vertical) 0;
+}
+
+/* ============================================= */
+/* BLOQUE: Mitad izquierda (contenido)           */
+/* ============================================= */
+.elegir-contenido {
+    width: var(--elegir-split-izq);
+    min-width: 0;                                  /* Permite que el contenido flexione */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;                       /* Centrado vertical del contenido */
+    padding-left: var(--elegir-padding-izq);
+    padding-right: var(--elegir-padding-der);
+    gap: var(--elegir-gap-textos-grupos);
+    box-sizing: border-box;
+    margin: 8rem 0rem 11rem 0rem;
+}
+
+/* Bloque de título + subtítulo */
+.elegir-textos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--elegir-gap-titulo-subtitulo);
+}
+
+/* ============================================= */
+/* BLOQUE: Título principal                      */
+/* ============================================= */
+.elegir-titulo {
+    font-family: var(--fuente-principal);
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--elegir-titulo-size);
+    line-height: 1;
+    color: var(--color-morado-obscuro);
+    text-align: left;
+}
+
+/* La palabra "elegir": verde + italic */
+.elegir-titulo-verde {
+    color: var(--color-verde);
+    font-style: italic;
+}
+
+/* ============================================= */
+/* BLOQUE: Subtítulo principal                   */
+/* ============================================= */
+.elegir-subtitulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-texto);
+    font-size: var(--elegir-subtitulo-size);
+    line-height: 1.4;
+    text-align: left;
+    max-width: var(--elegir-max-subtitulo);
+}
+
+/* ============================================= */
+/* BLOQUE: Arreglo de los 4 grupos               */
+/* Grid con subgrid → todos los elementos primos */
+/* se alinean entre grupos (iconos, títulos,     */
+/* subtítulos a la misma altura).                */
+/* ============================================= */
+.elegir-grupos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;            /* Fila 1: iconos / Fila 2: títulos / Fila 3: subtítulos */
+    column-gap: var(--elegir-gap-grupos);
+    row-gap: var(--elegir-gap-grupo-vertical);     /* Aplica a TODOS los grupos por igual */
+    width: 100%;
+    max-width: 70rem;
+}
+
+/* Cada grupo usa subgrid para heredar las 3 filas */
+.elegir-grupo {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    align-items: start;                            /* Cada elemento arriba de su fila */
+    justify-items: start;                          /* Cada elemento a la izquierda de su celda */
+    text-align: left;
+}
+
+/* ============================================= */
+/* BLOQUE: Iconos de los grupos                  */
+/* Base común + un tamaño independiente por SVG. */
+/* Ajusta cada width/height a ojo según el SVG.  */
+/* ============================================= */
+.elegir-grupo-icono {
+    object-fit: contain;
+    display: block;
+}
+
+/* Icono Grupo 1 — gotas.svg */
+.elegir-grupo:nth-child(1) .elegir-grupo-icono {
+    width: 5rem;
+    aspect-ratio: 1 / 1;
+}
+
+/* Icono Grupo 2 — escudo.svg */
+.elegir-grupo:nth-child(2) .elegir-grupo-icono {
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+}
+
+/* Icono Grupo 3 — pluma.svg */
+.elegir-grupo:nth-child(3) .elegir-grupo-icono {
+    width: 5rem;
+    aspect-ratio: 1 / 1;
+}
+
+/* Icono Grupo 4 — camion.svg */
+.elegir-grupo:nth-child(4) .elegir-grupo-icono {
+    width: 4rem;
+    aspect-ratio: 1 / 1;
+}
+
+/* Título del grupo */
+.elegir-grupo-titulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 700;
+    color: var(--color-morado-obscuro);
+    font-size: var(--elegir-grupo-titulo-size);
+    line-height: 1.2;
+    text-align: left;
+    max-width: var(--elegir-max-titulo-grupo);
+}
+
+/* Subtítulo del grupo */
+.elegir-grupo-subtitulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 650;
+    color: var(--color-texto);
+    font-size: var(--elegir-grupo-subtitulo-size);
+    line-height: 1.35;
+    text-align: left;
+    max-width: var(--elegir-max-subtitulo-grupo);
+}
+
+
+/* ============================================= */
+/* BLOQUE: Mitad derecha (imagen bandera)        */
+/* Capa absoluta: no afecta el layout del        */
+/* contenido izquierdo. Anclada abajo-derecha.   */
+/* ============================================= */
+.elegir-imagen-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: var(--elegir-imagen-ancho);
+    height: 100%;
+    display: flex;
+    align-items: flex-end;          /* Pegada al borde INFERIOR */
+    justify-content: flex-end;        /* Centrada horizontalmente en su capa */
+    pointer-events: none;           /* No bloquea clics del contenido */
+    box-sizing: border-box;
+    margin-right: 1rem;
+}
+
+.elegir-imagen {
+    max-width: 100%;
+    max-height: 100%;                              /* Nunca sobresale del wrapper */
+    width: auto;
+    height: auto;
+    object-fit: contain;                           /* Nunca se corta */
+    display: block;
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Imagen arriba (centrada, con hueco arriba)    */
+/* + contenido debajo con grupos apilados.       */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .seccion-elegir {
+        --elegir-padding-izq:            1.5rem;
+        --elegir-padding-der:            1.5rem;
+        --elegir-padding-vertical:       0rem;
+        --elegir-gap-textos-grupos:      3rem;
+        --elegir-titulo-size:            3rem;
+        --elegir-gap-titulo-subtitulo:   1rem;
+        --elegir-subtitulo-size:         1.3rem;
+        --elegir-max-subtitulo:          22rem;
+        --elegir-icono-size:             3.5rem;
+        --elegir-grupo-titulo-size:      1.5rem;
+        --elegir-grupo-subtitulo-size:   1.2rem;
+        --elegir-max-titulo-grupo:       100%;
+        --elegir-max-subtitulo-grupo:    100%;
+        --elegir-imagen-padding-top:     3rem;
+        --elegir-gap-grupos-vertical-movil: 3rem;  /* Gap vertical entre grupos apilados */
+
+        flex-direction: column;            /* Imagen primero, contenido después */
+        padding: var(--elegir-padding-vertical) 0;
+    }
+
+    /* ------------------------------------------------- */
+    /* Imagen (arriba): centrada, no toca el top          */
+    /* ------------------------------------------------- */
+    .elegir-imagen-wrapper {
+        position: static;                                 /* Vuelve al flujo */
+        width: 100%;
+        height: auto;
+        padding: 0 var(--elegir-padding-izq) 0 var(--elegir-padding-izq);
+        align-items: flex-end;
+        justify-content: flex-end;
+        pointer-events: auto;                             /* Restaura clics */
+    }
+
+
+    .elegir-imagen {
+        max-height: 40vh;
+        max-width: 80%;
+    }
+
+    /* ------------------------------------------------- */
+    /* Contenido (abajo): centrado                        */
+    /* ------------------------------------------------- */
+    .elegir-contenido {
+        width: 100%;
+        padding: 0 var(--elegir-padding-izq);
+        align-items: center;
+        text-align: center;
+        margin: 0 0 5rem 0;
+    }
+
+    .elegir-textos {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .elegir-titulo {
+        text-align: center;
+    }
+
+    .elegir-subtitulo {
+        text-align: justify;
+        text-align-last: center;
+        max-width: var(--elegir-max-subtitulo);
+    }
+
+    /* ------------------------------------------------- */
+    /* Grupos: en pila vertical, cada uno centrado        */
+    /* ------------------------------------------------- */
+    .elegir-grupos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--elegir-gap-grupos-vertical-movil);
+        width: 100%;
+    }
+
+    .elegir-grupo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--elegir-gap-grupo-vertical);
+        width: 100%;
+    }
+
+    .elegir-grupo-titulo,
+    .elegir-grupo-subtitulo {
+        text-align: center;
+        max-width: 100%;
+    }
+}
+
+/* ============================================= */
+/* BLOQUE: Decoración "Tu marca siempre visible" */
+/* Capa absoluta por encima de todo.             */
+/* Ajusta posición con las variables de abajo.   */
+/* ============================================= */
+.elegir-decoracion {
+    /* ⬇ VARIABLES AJUSTABLES DE POSICIÓN Y ESTILO */
+    --elegir-deco-top:           5%;       /* Distancia desde el borde SUPERIOR de la sección */
+    --elegir-deco-right:          32%;       /* Distancia desde el borde DERECHO de la sección */
+    --elegir-deco-rotacion:     -5deg;     /* Inclinación. -15deg baja la izquierda. 15deg sube la izquierda */
+    --elegir-deco-gap:            0rem;   /* Separación vertical entre el texto y la flecha */
+    --elegir-deco-texto-size:     2.5rem;   /* Tamaño de "Tu marca siempre visible" */
+    --elegir-deco-flecha-ancho:   5rem;     /* Ancho de la flecha */
+    --elegir-deco-line-height:    1.05;     /* Interlineado del texto */
+    --elegir-deco-flecha-offset-x: 3rem;   /* Desplaza SOLO la flecha a la derecha (+) o izquierda (-) sin mover el texto */
+
+    position: absolute;
+    top: var(--elegir-deco-top);
+    right: var(--elegir-deco-right);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--elegir-deco-gap);
+
+    /* Inclinación aplicada al GRUPO COMPLETO (texto + flecha juntos) */
+    transform: rotate(var(--elegir-deco-rotacion));
+    transform-origin: center center;
+
+    /* Capa por encima del contenido y de la imagen bandera */
+    z-index: 5;
+
+    /* No bloquea clics del contenido debajo */
+    pointer-events: none;
+}
+
+/* ============================================= */
+/* Texto verde inclinado                         */
+/* ============================================= */
+.elegir-decoracion-texto {
+    font-family: 'Smile Moon', cursive;
+    font-weight: normal;
+    color: var(--color-verde);
+    font-size: var(--elegir-deco-texto-size);
+    line-height: var(--elegir-deco-line-height);
+    text-align: center;
+    margin: 0;
+}
+
+/* ============================================= */
+/* Flecha curva debajo del texto                 */
+/* ============================================= */
+.elegir-decoracion-flecha {
+    width: var(--elegir-deco-flecha-ancho);
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transform: translateX(var(--elegir-deco-flecha-offset-x));
+    
+}
+
+/* ============================================= */
+/* RESPONSIVE MÓVIL (≤ 768px)                    */
+/* Mismo grupo, coordenadas y tamaños propios.   */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .elegir-decoracion {
+        --elegir-deco-top:           73%;        /* Ajusta a ojo */
+        --elegir-deco-right:         58%;        /* Ajusta a ojo */
+        --elegir-deco-rotacion:     -5deg;     /* Puedes variar la inclinación en móvil */
+        --elegir-deco-gap:           0.4rem;
+        --elegir-deco-texto-size:    1.6rem;
+        --elegir-deco-flecha-ancho:  3rem;
+        --elegir-deco-flecha-offset-x: 1rem;
+    }
+}
+
+/* ============================================= */
 /* BLOQUE: Sección Hero 2 (Eventos)              */
 /* Réplica estructural del Hero 1 pero con       */
 /* subtítulo + título + párrafo (sin botón).     */
@@ -1144,7 +1536,6 @@ section[id] {
 
     position: relative;
     width: 100%;
-    margin-top: var(--altura-navbar);   /* Compensa la navbar fija */
     overflow: hidden;
 }
 

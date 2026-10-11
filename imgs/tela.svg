@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg1779" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 682.67 682.67">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #271a61;
+        stroke-miterlimit: 10;
+      }
+
+      .st0, .st1 {
+        stroke: #271a61;
+      }
+
+      .st1 {
+        fill: none;
+        stroke-miterlimit: 13.33;
+        stroke-width: 34.92px;
+      }
+    </style>
+  </defs>
+  <g id="g1795">
+    <path id="path1797" class="st1" d="M296.46,532.82c0,45.42-36.82,82.24-82.24,82.24s-82.24-36.82-82.24-82.24,36.82-82.24,82.24-82.24,82.24,36.82,82.24,82.24Z"/>
+  </g>
+  <g id="g1799">
+    <path id="path1801" class="st1" d="M296.46,532.82V137.36c0-45.42-36.82-82.24-82.24-82.24s-82.24,36.82-82.24,82.24v395.46"/>
+  </g>
+  <g id="g1803">
+    <path id="path1805" class="st1" d="M295.91,123.62h282.77v491.93l-364.47-.48"/>
+  </g>
+  <path id="path1807" class="st1" d="M578.69,615.55h-71.59V123.62h71.59v491.93Z"/>
+  <g id="g1809">
+    <path id="path1811" class="st0" d="M214.22,550.29c9.13,0,17.88-8.03,17.46-17.46-.42-9.46-7.67-17.46-17.46-17.46-9.13,0-17.88,8.03-17.46,17.46.42,9.46,7.67,17.46,17.46,17.46"/>
+  </g>
+</svg>

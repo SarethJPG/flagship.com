@@ -2053,3 +2053,288 @@ section[id] {
         transform: rotate(90deg);
     }
 }
+
+/* ============================================= */
+/* BLOQUE: Sección Calidad (Materiales)          */
+/* Imagen de fondo + contenido anclado a la der. */
+/* ============================================= */
+.seccion-calidad {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --calidad-wrapper-ancho:           55%;      /* Ancho del wrapper (anclado a la derecha) */
+    --calidad-padding-vertical:        4rem;     /* Padding vertical del wrapper */
+    --calidad-padding-der:             1rem;     /* Padding derecho del wrapper */
+    --calidad-gap-contenedores:        9rem;     /* Gap horizontal entre contenedor 1 y contenedor 2 */
+
+    --calidad-subtitulo-size:          2rem;     /* Tamaño del subtítulo */
+    --calidad-titulo-size:             5.5rem;   /* Tamaño del título */
+    --calidad-parrafo-size:            1.5rem;   /* Tamaño del párrafo */
+
+    --calidad-gap-subtitulo-titulo:    1.5rem;   /* Gap vertical subtítulo ↔ título */
+    --calidad-gap-titulo-parrafo:      2rem;     /* Gap vertical título ↔ párrafo */
+
+    --calidad-max-subtitulo:           30rem;    /* Max width del subtítulo */
+    --calidad-max-titulo:              35rem;    /* Max width del título */
+    --calidad-max-parrafo:             35rem;    /* Max width del párrafo */
+
+    --calidad-grupos-max-width:        14rem;    /* Max width común de todos los grupos */
+    --calidad-grupos-gap-vertical:     4.5rem;     /* Gap vertical entre grupos */
+    --calidad-grupo-gap-img-texto:     1rem;     /* Gap horizontal entre imagen y título del grupo */
+    --calidad-grupo-icono-size:        2.5rem;   /* Tamaño de los iconos */
+    --calidad-grupo-titulo-size:       1.5rem;   /* Tamaño de los títulos de grupo */
+
+    --calidad-overlap-movil:           4rem;     /* (solo móvil) Cuánto se meten los textos en la imagen */
+    --calidad-grupos-padding-movil:    3rem 6%;  /* (solo móvil) Padding del bloque de grupos sobre fondo blanco */
+
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ============================================= */
+/* BLOQUE: Wrapper de la imagen de fondo         */
+/* Define la altura natural de la sección         */
+/* ============================================= */
+.calidad-imagen-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.calidad-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ============================================= */
+/* BLOQUE: Contenido superpuesto                 */
+/* Anclado a la derecha, ocupa el ancho definido  */
+/* ============================================= */
+.calidad-contenido {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--calidad-wrapper-ancho);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Wrapper general: agrupa los 2 sub-contenedores */
+.calidad-wrapper {
+    width: 100%;
+    padding: var(--calidad-padding-vertical) var(--calidad-padding-der) var(--calidad-padding-vertical) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--calidad-gap-contenedores);
+}
+
+/* ============================================= */
+/* BLOQUE: Contenedor 1 (subtítulo + título + párrafo) */
+/* ============================================= */
+.calidad-textos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.calidad-subtitulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-morado-obscuro);
+    font-size: var(--calidad-subtitulo-size);
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-align: left;
+    max-width: var(--calidad-max-subtitulo);
+    margin-bottom: var(--calidad-gap-subtitulo-titulo);
+}
+
+.calidad-titulo {
+    font-family: var(--fuente-principal);
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--calidad-titulo-size);
+    line-height: 1;
+    text-align: left;
+    max-width: var(--calidad-max-titulo);
+    margin-bottom: var(--calidad-gap-titulo-parrafo);
+}
+
+.calidad-titulo-morado {
+    color: var(--color-morado-obscuro);
+}
+
+.calidad-titulo-verde {
+    color: var(--color-verde);
+}
+
+.calidad-parrafo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-morado-obscuro);
+    font-size: var(--calidad-parrafo-size);
+    line-height: 1.4;
+    text-align: left;
+    max-width: var(--calidad-max-parrafo);
+}
+
+/* ============================================= */
+/* BLOQUE: Contenedor 2 (4 grupos: icono + título) */
+/* ============================================= */
+.calidad-grupos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--calidad-grupos-gap-vertical);
+    max-width: var(--calidad-grupos-max-width);
+    flex-shrink: 0;
+}
+
+.calidad-grupo {
+    display: flex;
+    align-items: center;
+    gap: var(--calidad-grupo-gap-img-texto);
+    max-width: 100%;
+}
+
+.calidad-grupo-icono {
+    width: var(--calidad-grupo-icono-size);
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+.calidad-grupo-titulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 650;
+    color: var(--color-morado-obscuro);
+    font-size: var(--calidad-grupo-titulo-size);
+    line-height: 1.3;
+    text-align: left;
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Imagen arriba + textos encima + grupos abajo   */
+/* en subsección con fondo blanco.                */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .seccion-calidad {
+        --calidad-overlap-movil:           4rem;
+        --calidad-titulo-size:             2.5rem;
+        --calidad-subtitulo-size:          1.3rem;
+        --calidad-parrafo-size:            1.2rem;
+        --calidad-gap-subtitulo-titulo:    0.8rem;
+        --calidad-gap-titulo-parrafo:      1.2rem;
+        --calidad-max-subtitulo:           100%;
+        --calidad-max-titulo:              22rem;
+        --calidad-max-parrafo:             22rem;
+        --calidad-grupos-max-width:        14rem;
+        --calidad-grupos-gap-vertical:     5rem;
+        --calidad-grupo-icono-size:        4rem;
+        --calidad-grupo-titulo-size:       1.5rem;
+        --calidad-grupos-padding-movil:    2rem 6%;
+
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    /* ------------------------------------------------- */
+    /* 1. Imagen arriba (altura fija) + capa degradada   */
+    /* ------------------------------------------------- */
+    .calidad-imagen-wrapper {
+        position: relative;
+        width: 100%;
+        height: 55vh;
+        min-height: 22rem;
+        overflow: hidden;
+    }
+
+    .calidad-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Muestra la parte IZQUIERDA de la imagen */
+        object-position: left center;
+    }
+
+    /* Capa blanca con degradado: arriba casi transparente,
+       abajo blanco sólido para fundirse con la subsección siguiente */
+    .calidad-imagen-wrapper::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.45) 50%,
+            rgba(255, 255, 255, 0.95) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* ------------------------------------------------- */
+    /* 2. Contenido: sale del absoluto y se superpone    */
+    /*    ligeramente a la imagen para los textos        */
+    /* ------------------------------------------------- */
+    .calidad-contenido {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-top: calc(-1 * var(--calidad-overlap-movil));
+        z-index: 2;
+    }
+
+    .calidad-wrapper {
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+    }
+
+    /* ------------------------------------------------- */
+    /* 3. Contenedor 1: textos centrados                 */
+    /* ------------------------------------------------- */
+    .calidad-textos {
+        align-items: center;
+        text-align: center;
+        padding: 0 6%;
+    }
+
+    .calidad-subtitulo,
+    .calidad-titulo {
+        text-align: center;
+    }
+
+    .calidad-parrafo {
+        text-align: justify;
+        text-align-last: center;
+    }
+
+    /* ------------------------------------------------- */
+    /* 4. Contenedor 2: subsección con fondo blanco      */
+    /*    Grupos centrados, contenido interno a la izq.  */
+    /* ------------------------------------------------- */
+    .calidad-grupos {
+        background-color: var(--color-blanco);
+        width: 100%;
+        max-width: 100%;
+        padding: var(--calidad-grupos-padding-movil);
+        margin-top: 3rem;
+        align-items: center;   /* Centra cada grupo horizontalmente */
+        flex-shrink: 0;
+    }
+
+    /* Cada grupo: ancho común hasta el max-width → todos centrados */
+    .calidad-grupo {
+        width: 100%;
+        max-width: var(--calidad-grupos-max-width);
+    }
+}

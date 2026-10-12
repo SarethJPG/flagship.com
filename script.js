@@ -213,3 +213,177 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 100);
     });
 });
+
+// =========================================
+// FORMULARIO DE CONTACTO: VALIDACIONES
+// =========================================
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("form-contacto");
+
+    // Solo se ejecuta si la página actual tiene el formulario
+    if (!form) return;
+
+    // -----------------------------------------
+    // Función auxiliar: sanitiza el texto eliminando
+    // caracteres peligrosos para evitar inyección HTML/JS
+    // -----------------------------------------
+    function sanitizar(texto) {
+        return texto
+            .replace(/[<>]/g, "")         // Elimina < y >
+            .replace(/javascript:/gi, "") // Elimina intentos de inyección javascript:
+            .replace(/on\w+=/gi, "")      // Elimina eventos inline (onclick=, onerror=, etc.)
+            .trim();
+    }
+
+    // -----------------------------------------
+    // Función auxiliar: capitaliza el nombre
+    // (Primera letra de cada palabra en mayúscula, resto minúscula)
+    // -----------------------------------------
+    function capitalizarNombre(texto) {
+        return texto
+            .toLowerCase()
+            .split(" ")
+            .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+            .join(" ");
+    }
+
+    // -----------------------------------------
+    // Función auxiliar: valida un campo y muestra su error
+    // El mensaje de error se busca con la clase .form-error
+    // -----------------------------------------
+    function validarCampo(id, reglas) {
+        const input = document.getElementById(id);
+        const errorMsg = input.parentElement.querySelector(".form-error");
+
+        // 1. Sanitizamos SIEMPRE
+        let valor = sanitizar(input.value);
+
+        // 2. Aplicamos transformaciones específicas (si las hay)
+        if (reglas.transform) {
+            valor = reglas.transform(valor);
+        }
+
+        // 3. Devolvemos el valor limpio al input
+        input.value = valor;
+
+        // 4. Evaluamos las reglas
+        let valido = true;
+
+        if (reglas.required && valor === "") {
+            valido = false;
+        }
+
+        if (reglas.regex && !reglas.regex.test(valor)) {
+            valido = false;
+        }
+
+        if (reglas.minLength && valor.length < reglas.minLength) {
+            valido = false;
+        }
+
+        if (reglas.maxLength && valor.length > reglas.maxLength) {
+            valido = false;
+        }
+
+        // 5. Aplicamos feedback visual
+        if (errorMsg) {
+            errorMsg.style.display = valido ? "none" : "block";
+        }
+
+        if (valido) {
+            input.style.boxShadow = "0 0.125rem 0.5rem rgba(0, 0, 0, 0.06)";
+        } else {
+            input.style.boxShadow = "0 0.125rem 0.5rem rgba(255, 0, 0, 0.4)";
+        }
+
+        return valido;
+    }
+
+    // -----------------------------------------
+    // Envío del formulario
+    // -----------------------------------------
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let formValido = true;
+
+        // --- Nombre: solo letras/espacios, mín 2 letras, sin números ---
+        const nombreValido = validarCampo("nombre", {
+            required: true,
+            regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/,
+            transform: capitalizarNombre
+        });
+        if (!nombreValido) formValido = false;
+
+        // --- Ciudad: cualquier texto, máx 50 caracteres ---
+        const ciudadValido = validarCampo("ciudad", {
+            required: true,
+            maxLength: 50
+        });
+        if (!ciudadValido) formValido = false;
+
+        // --- Teléfono: solo números y espacios ---
+        const telefonoValido = validarCampo("telefono", {
+            required: true,
+            regex: /^[0-9\s]+$/
+        });
+        if (!telefonoValido) formValido = false;
+
+        // --- Correo: válido con @ y extensión ---
+        const correoValido = validarCampo("correo", {
+            required: true,
+            regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        });
+        if (!correoValido) formValido = false;
+
+        // --- Mensaje: cualquier texto, máx 500 caracteres ---
+        const mensajeValido = validarCampo("mensaje", {
+            required: true,
+            maxLength: 500
+        });
+        if (!mensajeValido) formValido = false;
+
+        // -----------------------------------------
+        // Si TODO es válido → Enviar al servidor PHP
+        // -----------------------------------------
+        if (formValido) {
+            const datosFormulario = {
+                nombre:   document.getElementById("nombre").value,
+                ciudad:   document.getElementById("ciudad").value,
+                telefono: document.getElementById("telefono").value,
+                correo:   document.getElementById("correo").value,
+                mensaje:  document.getElementById("mensaje").value
+            };
+
+            fetch('enviar.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datosFormulario)
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                if (data.success) {
+                    alert("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
+                    form.reset();
+
+                    // Quitamos el feedback visual de todos los campos
+                    form.querySelectorAll(".form-input, .form-textarea").forEach(function (campo) {
+                        campo.style.boxShadow = "";
+                    });
+                } else {
+                    alert("Ocurrió un error: " + (data.error || "Inténtalo de nuevo."));
+                    console.error("Error del servidor:", data);
+                }
+            })
+            .catch(function (error) {
+                alert("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
+                console.error("FAILED...", error);
+            });
+        }
+    });
+});

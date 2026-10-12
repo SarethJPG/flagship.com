@@ -1,0 +1,9 @@
+# Credenciales SMTP — NO subir al repo
+enviar.php
+
+# Dependencias PHP
+/PHPMailer/
+
+# Basura del sistema
+.DS_Store
+Thumbs.db

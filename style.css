@@ -2616,3 +2616,802 @@ section[id] {
         max-width: 3rem;
     }
 }
+
+/* ============================================= */
+/* BLOQUE: Sección Formulario de Contacto        */
+/* Imagen de fondo + formulario a la izquierda    */
+/* ============================================= */
+.seccion-formulario {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --formulario-wrapper-ancho:        50%;      /* Ancho del contenido (anclado a la izquierda) */
+    --formulario-padding-vertical:     4rem;     /* Padding vertical del wrapper */
+    --formulario-padding-izq:          7rem;     /* Padding izquierdo del bloque de textos */
+
+    --formulario-titulo-size:          2rem;     /* Tamaño del título superior */
+    --formulario-titulo-margin-bottom: 1.5rem;   /* Separación título ↔ formulario */
+
+    --formulario-max-form:             55rem;    /* Ancho máximo del formulario */
+
+    --form-overlap-movil:              4rem;     /* (solo móvil) Cuánto se mete el formulario en la imagen */
+    --form-bg-pos-x-movil:             100%;   /* (solo móvil) Encuadre horizontal: right | center | left */
+
+
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ============================================= */
+/* BLOQUE: Wrapper de la imagen de fondo         */
+/* Define la altura natural de la sección         */
+/* ============================================= */
+.formulario-imagen-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.formulario-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* ============================================= */
+/* BLOQUE: Contenido superpuesto                 */
+/* Anclado a la izquierda                         */
+/* ============================================= */
+.formulario-contenido {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--formulario-wrapper-ancho);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Wrapper general: agrupa el título y el form */
+.formulario-wrapper {
+    width: 100%;
+    padding: var(--formulario-padding-vertical) 0 var(--formulario-padding-vertical) var(--formulario-padding-izq);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: var(--formulario-max-form);
+}
+
+/* ============================================= */
+/* BLOQUE: Título                                 */
+/* ============================================= */
+.formulario-titulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-texto);
+    font-size: var(--formulario-titulo-size);
+    line-height: 1.3;
+    text-align: left;
+    margin-bottom: var(--formulario-titulo-margin-bottom);
+    margin-bottom: 3.5rem;
+}
+
+/* ============================================= */
+/* BLOQUE: Formulario                             */
+/* ============================================= */
+.formulario-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.form-fila-doble {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.form-fila-doble .form-grupo {
+    flex: 1;
+}
+
+/* ============================================= */
+/* BLOQUE: Labels e inputs                        */
+/* ============================================= */
+.form-label {
+    font-family: var(--fuente-terciaria);
+    color: var(--color-negro);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    font-family: var(--fuente-terciaria);
+    font-size: 1rem;
+    color: var(--color-negro);
+    padding: 0.7rem 1rem;
+    background-color: var(--color-blanco);
+    border: none;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    box-shadow: 0 0.125rem 0.75rem rgba(102, 85, 140, 0.35);  /* sombra morado claro */
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+/* ============================================= */
+/* BLOQUE: Mensajes de error                      */
+/* ============================================= */
+.form-error {
+    color: red;
+    font-family: var(--fuente-terciaria);
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+    display: none;
+}
+
+/* ============================================= */
+/* BLOQUE: Botón Enviar (morado claro)            */
+/* ============================================= */
+.form-btn-enviar {
+    font-family: var(--fuente-terciaria);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-blanco);
+    background-color: var(--color-morado-claro);
+    border: none;
+    border-radius: 50rem;
+    padding: 0.8rem 8rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: flex-start;
+}
+
+.form-btn-enviar:hover {
+    background-color: var(--color-morado-obscuro);
+    transform: scale(1.03);
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Imagen arriba + formulario abajo centrado      */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .seccion-formulario {
+        --form-overlap-movil:           4rem;
+        --formulario-titulo-size:       1.3rem;
+        --formulario-titulo-margin-bottom: 1rem;
+        --formulario-max-form:          100%;
+
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    /* ------------------------------------------------- */
+    /* 1. Imagen arriba (altura fija) + capa degradada   */
+    /* ------------------------------------------------- */
+    .formulario-imagen-wrapper {
+        position: relative;
+        width: 100%;
+        height: 45vh;
+        min-height: 18rem;
+        overflow: hidden;
+    }
+
+    .formulario-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: var(--form-bg-pos-x-movil) center;
+    }
+
+    .fabricantes-imagen-wrapper::before {
+        display: none;
+    }
+
+    /* Capa blanca con degradado hacia abajo */
+    .formulario-imagen-wrapper::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.70) 50%,
+            rgba(255, 255, 255, 0.95) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* ------------------------------------------------- */
+    /* 2. Contenido: sale del absoluto, se superpone     */
+    /* ------------------------------------------------- */
+    .formulario-contenido {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-top: calc(-1 * var(--form-overlap-movil));
+        z-index: 2;
+    }
+
+    /* ------------------------------------------------- */
+    /* 3. Wrapper: padding lateral y centrado             */
+    /* ------------------------------------------------- */
+    .formulario-wrapper {
+        padding: 0 6% 4rem 6%;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .formulario-titulo {
+        text-align: center;
+    }
+
+    /* ------------------------------------------------- */
+    /* 4. Formulario: mismo layout                        */
+    /* ------------------------------------------------- */
+    .formulario-form {
+        width: 100%;
+    }
+
+    /* Fila doble se apila en columna */
+    .form-fila-doble {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Botón ancho completo para mejor pulsación táctil */
+    .form-btn-enviar {
+        width: 100%;
+        align-self: stretch;
+        padding: 0.9rem 2rem;
+    }
+}
+
+/* ============================================= */
+/* BLOQUE: Sección Somos Fabricantes             */
+/* Espejo del Hero 1: contenido a la derecha      */
+/* ============================================= */
+.seccion-fabricantes {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --fabricantes-padding-der:          4rem;      /* Separación del contenido con el borde derecho (desktop) */
+    --fabricantes-max-titulo:           40rem;     /* Ancho máximo del título (controla dónde rompe) */
+    --fabricantes-max-parrafo:          30rem;     /* Ancho máximo del párrafo (controla el salto de línea) */
+    --fabricantes-gap-titulo-parrafo:   2.5rem;    /* Gap vertical entre título y párrafo */
+    --fabricantes-gap-parrafo-boton:    5.5rem;    /* Gap vertical entre párrafo y botón */
+    --fabricantes-titulo-size:          5.5rem;    /* Tamaño del título */
+    --fabricantes-parrafo-size:         1.95rem;    /* Tamaño del párrafo */
+    --fabricantes-btn-size:             1.2rem;    /* Tamaño de fuente del botón */
+    --fabricantes-btn-padding-y:        0.7rem;      /* Padding vertical del botón */
+    --fabricantes-btn-padding-x:        3rem;      /* Padding horizontal del botón */
+    --fabricantes-overlap:              4rem;      /* (solo móvil) Cuánto se meten los textos en la imagen */
+    --fabricantes-bg-pos-x-movil:       16%;       /* (solo móvil) Encuadre horizontal: right | center | left */
+
+    --fabricantes-overlay-max:          rgba(255, 255, 255, 0.3);  /* Opacidad máxima del degradado blanco (lado derecho) */
+
+
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ============================================= */
+/* BLOQUE: Wrapper de la imagen de fondo         */
+/* Define la altura natural de la sección         */
+/* ============================================= */
+.fabricantes-imagen-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.fabricantes-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ============================================= */
+/* Capa blanca degradada: solo desktop            */
+/* Va de más opacidad (derecha) a menos (izq)     */
+/* para dar contraste a los textos de la derecha. */
+/* ============================================= */
+.fabricantes-imagen-wrapper {
+    position: relative;
+}
+
+.fabricantes-imagen-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to left,
+        var(--fabricantes-overlay-max) 0%,
+        rgba(255, 255, 255, 0.75) 25%,
+        rgba(255, 255, 255, 0) 50%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* ============================================= */
+/* BLOQUE: Contenido superpuesto (2 mitades)     */
+/* ============================================= */
+.fabricantes-contenido {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 2;
+}
+
+/* Mitad izquierda: vacía, deja ver la imagen */
+.fabricantes-mitad-izq {
+    width: 50%;
+}
+
+/* Mitad derecha: contiene los textos */
+.fabricantes-mitad-der {
+    width: 50%;
+    display: flex;
+    align-items: center;          /* Centrado vertical */
+    justify-content: flex-end;    /* Contenido al borde derecho */
+    padding-right: var(--fabricantes-padding-der);
+}
+
+/* ============================================= */
+/* BLOQUE: Bloque de textos                      */
+/* (título + párrafo + botón)                    */
+/* ============================================= */
+.fabricantes-textos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;        /* Alineación derecha de los 3 elementos */
+    text-align: right;
+    max-width: 100%;
+    margin-right: 4rem;
+}
+
+/* ============================================= */
+/* BLOQUE: Título (bicolor)                      */
+/* ============================================= */
+.fabricantes-titulo {
+    font-family: var(--fuente-principal);
+    font-weight: 700;
+    font-size: var(--fabricantes-titulo-size);
+    line-height: 1;
+    text-align: right;
+    max-width: var(--fabricantes-max-titulo);
+    margin-bottom: var(--fabricantes-gap-titulo-parrafo);
+}
+
+.fabricantes-titulo-morado {
+    color: var(--color-morado-obscuro);
+}
+
+.fabricantes-titulo-verde {
+    color: var(--color-verde);
+}
+
+/* ============================================= */
+/* BLOQUE: Párrafo                               */
+/* ============================================= */
+.fabricantes-parrafo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-morado-obscuro);
+    font-size: var(--fabricantes-parrafo-size);
+    line-height: 1.2;
+    text-align: right;
+    max-width: var(--fabricantes-max-parrafo);
+    margin-bottom: var(--fabricantes-gap-parrafo-boton);
+}
+
+/* ============================================= */
+/* BLOQUE: Botón "Cotiza tu proyecto"            */
+/* ============================================= */
+.fabricantes-btn {
+    display: inline-block;
+    background-color: var(--color-morado-claro);
+    color: var(--color-blanco);
+    font-family: var(--fuente-terciaria);
+    font-weight: 550;
+    font-size: var(--fabricantes-btn-size);
+    padding: var(--fabricantes-btn-padding-y) var(--fabricantes-btn-padding-x);
+    border-radius: 50rem;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.fabricantes-btn:hover {
+    background-color: var(--color-morado-obscuro);
+    transform: scale(1.03);
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Mismo comportamiento que el Hero 1:           */
+/*  arriba → imagen con degradado blanco         */
+/*  abajo  → textos centrados con overlap        */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .seccion-fabricantes {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-blanco);
+        overflow: visible;              /* Permite el overlap del contenido sobre la imagen */
+    }
+
+    /* ------------------------------------------------- */
+    /* 1. Parte superior: imagen + degradado             */
+    /* ------------------------------------------------- */
+    .fabricantes-imagen-wrapper {
+        position: relative;
+        width: 100%;
+        height: 55vh;
+        min-height: 22rem;
+        overflow: hidden;
+    }
+
+    .fabricantes-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: var(--fabricantes-bg-pos-x-movil) center;
+    }
+
+    /* Degradado de blanco (abajo) a transparente (arriba) */
+    .fabricantes-imagen-wrapper::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60%;
+        background: linear-gradient(
+            to top,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.85) 30%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* ------------------------------------------------- */
+    /* 2. Parte inferior: contenido centrado con overlap */
+    /* ------------------------------------------------- */
+    .fabricantes-contenido {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: calc(-1 * var(--fabricantes-overlap));
+        padding: 0 6% 4rem 6%;
+        z-index: 2;
+    }
+
+    /* Ocultamos la mitad izquierda vacía */
+    .fabricantes-mitad-izq {
+        display: none;
+    }
+
+    .fabricantes-mitad-der {
+        width: 100%;
+        padding: 0;
+        display: block;
+    }
+
+    /* Textos: alineación centrada */
+    .fabricantes-textos {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    /* ------------------------------------------------- */
+    /* 3. Jerarquía tipográfica ajustada                 */
+    /* ------------------------------------------------- */
+    .fabricantes-titulo {
+        font-size: 3.5rem;
+        line-height: 0.9;
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .fabricantes-parrafo {
+        font-size: 1.3rem;
+        line-height: 1.45;
+        text-align: center;
+        max-width: 20rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .fabricantes-btn {
+        font-size: 1rem;
+        padding: 0.75rem 3rem;
+    }
+}
+
+/* ============================================= */
+/* BLOQUE: Footer                                */
+/* ============================================= */
+.footer {
+    /* ⬇ VARIABLES AJUSTABLES DE ESTA SECCIÓN */
+    --footer-fondo:                  #e4e4e4;       /* Fondo del footer */
+    --footer-padding-vertical:       4rem;           /* Padding vertical general */
+    --footer-padding-lateral:        5%;             /* Padding lateral general */
+
+    --footer-gap-grupos:             3rem;           /* Gap horizontal entre los 5 grupos */
+    --footer-gap-lista-vertical:     0.6rem;         /* Gap vertical entre elementos de la lista */
+    --footer-gap-titulo-lista:       1.2rem;         /* Gap vertical entre título y su lista */
+
+    --footer-max-logo:               15rem;          /* Max width del contenedor 1 (logo) */
+    --footer-max-listas:             14rem;          /* Max width común de los contenedores 2, 3 y 4 */
+    --footer-max-redes:              12rem;          /* Max width del contenedor 5 (redes) */
+
+    --footer-titulo-size:            1.1rem;         /* Tamaño de los títulos de columna */
+    --footer-link-size:              0.95rem;        /* Tamaño de los links y textos de lista */
+    --footer-icono-size:             1rem;           /* Tamaño de los iconos de contacto */
+
+    --footer-redes-size:             2.5rem;           /* Tamaño de los iconos de redes sociales */
+    --footer-redes-gap:              0.8rem;         /* Gap horizontal entre iconos de redes */
+
+    --footer-hr-ancho:               90%;            /* Ancho de la línea divisoria */
+    --footer-hr-alto:                3px;            /* Alto de la línea */
+    --footer-hr-margin:              2.5rem;         /* Separación vertical de la línea */
+
+    --footer-copyright-size:         0.9rem;         /* Tamaño del copyright */
+
+    background-color: var(--footer-fondo);
+    width: 100%;
+    padding: var(--footer-padding-vertical) var(--footer-padding-lateral);
+}
+
+/* ============================================= */
+/* BLOQUE: Wrapper de los 5 grupos               */
+/* ============================================= */
+.footer-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--footer-gap-grupos);
+    width: 100%;
+}
+
+/* ============================================= */
+/* BLOQUE: Grupos base                           */
+/* ============================================= */
+.footer-grupo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* --- Grupo 1: Logo --- */
+.footer-grupo-logo {
+    max-width: var(--footer-max-logo);
+    flex-shrink: 0;
+}
+
+.footer-logo-link {
+    display: block;
+}
+
+.footer-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Grupos 2, 3, 4: listas --- */
+.footer-grupo-empresa,
+.footer-grupo-productos,
+.footer-grupo-contacto {
+    max-width: var(--footer-max-listas);
+    flex-shrink: 0;
+}
+
+/* --- Grupo 5: redes sociales --- */
+.footer-grupo-redes {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--footer-redes-gap);
+    max-width: var(--footer-max-redes);
+    flex-shrink: 0;
+}
+
+/* ============================================= */
+/* BLOQUE: Títulos de columna                    */
+/* ============================================= */
+.footer-titulo {
+    font-family: var(--fuente-terciaria);
+    font-weight: 600;
+    color: var(--color-morado-obscuro);
+    font-size: var(--footer-titulo-size);
+    line-height: 1.3;
+    text-align: left;
+    margin-bottom: var(--footer-gap-titulo-lista);
+}
+
+/* ============================================= */
+/* BLOQUE: Listas de links                       */
+/* ============================================= */
+.footer-lista {
+    display: flex;
+    flex-direction: column;
+    gap: var(--footer-gap-lista-vertical);
+    width: 100%;
+}
+
+.footer-link {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-morado-obscuro);
+    font-size: var(--footer-link-size);
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-verde);
+}
+
+/* ============================================= */
+/* BLOQUE: Lista de contacto (con iconos)        */
+/* ============================================= */
+.footer-lista-contacto li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.footer-icono {
+    width: var(--footer-icono-size);
+    height: var(--footer-icono-size);
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+}
+
+.footer-contacto-texto {
+    font-family: var(--fuente-terciaria);
+    font-weight: 500;
+    color: var(--color-morado-obscuro);
+    font-size: var(--footer-link-size);
+    line-height: 1.4;
+}
+
+/* ============================================= */
+/* BLOQUE: Redes sociales                        */
+/* ============================================= */
+.footer-red-link {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-red-link:hover {
+    transform: scale(1.1);
+    opacity: 0.85;
+}
+
+.footer-red-link img {
+    width: var(--footer-redes-size);
+    height: var(--footer-redes-size);
+    object-fit: contain;
+    display: block;
+}
+
+/* ============================================= */
+/* BLOQUE: Línea divisoria verde                 */
+/* ============================================= */
+.footer-hr {
+    width: var(--footer-hr-ancho);
+    height: var(--footer-hr-alto);
+    background-color: var(--color-verde);
+    border: none;
+    margin: var(--footer-hr-margin) auto;
+    display: block;
+}
+
+/* ============================================= */
+/* BLOQUE: Copyright                             */
+/* ============================================= */
+.footer-copyright {
+    font-family: var(--fuente-terciaria);
+    font-weight: 300;
+    color: var(--color-morado-obscuro);
+    font-size: var(--footer-copyright-size);
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* ============================================= */
+/* BLOQUE: RESPONSIVE MÓVIL (≤ 768px)            */
+/* Grupos apilados en columna                     */
+/* ============================================= */
+@media (max-width: 768px) {
+
+    .footer {
+        --footer-padding-vertical:       3rem;
+        --footer-padding-lateral:        6%;
+        --footer-gap-grupos:             2.5rem;
+        --footer-gap-lista-vertical:     0.5rem;
+        --footer-gap-titulo-lista:       0.8rem;
+
+        --footer-max-logo:               10rem;
+        --footer-max-listas:             100%;
+        --footer-max-redes:              100%;
+
+        --footer-titulo-size:            1.05rem;
+        --footer-link-size:              0.95rem;
+        --footer-redes-size:             1.8rem;
+        --footer-copyright-size:         0.85rem;
+    }
+
+    /* Apilado vertical */
+    .footer-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--footer-gap-grupos);
+    }
+
+    /* Todos los grupos a 100% para alineación izquierda consistente */
+    .footer-grupo-logo,
+    .footer-grupo-empresa,
+    .footer-grupo-productos,
+    .footer-grupo-contacto {
+        max-width: 100%;
+    }
+
+    .footer-grupo-logo{
+        max-width: 12rem;
+    }
+
+    /* Las redes mantienen su flex horizontal pero alineadas a la izquierda */
+    .footer-grupo-redes {
+        flex-direction: row;
+        justify-content: flex-start;
+        max-width: 100%;
+    }
+
+    /* HR y copyright con menos margen */
+    .footer-hr {
+        margin: 2rem auto;
+    }
+}

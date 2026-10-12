@@ -59,7 +59,7 @@
                 <div class="navbar-cta-grupo">
 
                     <!-- Botón "Cotiza ahora" con degradado verde -->
-                    <a href="https://wa.me/525555555555?text=Hola!%20quiero%20hacer%20una%20cotizaci%C3%B3n"
+                    <a href="https://wa.me/525524805342?text=Hola!%20quiero%20hacer%20una%20cotizaci%C3%B3n"
                        class="navbar-btn-cotiza"
                        target="_blank"
                        rel="noopener noreferrer"
@@ -68,7 +68,7 @@
                     </a>
 
                     <!-- Icono WhatsApp -->
-                    <a href="https://wa.me/525555555555?text=Hola!%20quiero%20hacer%20una%20cotizaci%C3%B3n"
+                    <a href="https://wa.me/5524805342?text=Hola!%20quiero%20hacer%20una%20cotizaci%C3%B3n"
                        class="navbar-whatsapp-link"
                        target="_blank"
                        rel="noopener noreferrer"
@@ -497,7 +497,7 @@
     <!-- =========================================
          SECCIÓN: COTIZA TU PROYECTO
     ========================================= -->
-    <section class="seccion-cotiza" id="contacto">
+    <section class="seccion-cotiza" id="cotiza">
     
         <!-- Wrapper de la imagen de fondo: define la altura de la sección -->
         <div class="cotiza-imagen-wrapper">
@@ -554,6 +554,211 @@
     
     </section>
     <!-- Fin de la Sección Cotiza tu proyecto -->
+
+    <!-- =========================================
+         SECCIÓN: FORMULARIO DE CONTACTO
+    ========================================= -->
+    <section class="seccion-formulario" id="contacto">
+
+        <!-- Wrapper de la imagen de fondo: define la altura de la sección -->
+        <div class="formulario-imagen-wrapper">
+            <img src="imgs/banner_5.webp"
+                 alt="Flagship — Contacto"
+                 class="formulario-bg"
+                 loading="lazy">
+        </div>
+
+        <!-- Contenido superpuesto (formulario a la izquierda) -->
+        <div class="formulario-contenido">
+
+            <!-- Wrapper general: título + formulario -->
+            <div class="formulario-wrapper">
+
+                <!-- Título -->
+                <p class="formulario-titulo">Un ejecutivo se pondrá en contacto</p>
+
+                <!-- Formulario -->
+                <form id="form-contacto" class="formulario-form" novalidate>
+
+                    <!-- Nombre -->
+                    <div class="form-grupo">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-input" required>
+                        <span class="form-error">Por favor ingresa un nombre válido (mín. 2 letras, sin números).</span>
+                    </div>
+
+                    <!-- Ciudad + Teléfono (fila doble) -->
+                    <div class="form-fila-doble">
+                        <div class="form-grupo">
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" id="ciudad" name="ciudad" class="form-input" maxlength="50" required>
+                            <span class="form-error">Máximo 50 caracteres.</span>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="telefono" class="form-label">Tels.</label>
+                            <input type="tel" id="telefono" name="telefono" class="form-input" required>
+                            <span class="form-error">Solo se permiten números.</span>
+                        </div>
+                    </div>
+
+                    <!-- Correo -->
+                    <div class="form-grupo">
+                        <label for="correo" class="form-label">Correo electrónico</label>
+                        <input type="email" id="correo" name="correo" class="form-input" required>
+                        <span class="form-error">Por favor ingresa un correo válido (con "@" y extensión).</span>
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div class="form-grupo">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" class="form-textarea" rows="5" maxlength="500" required></textarea>
+                        <span class="form-error">Máximo 500 caracteres.</span>
+                    </div>
+
+                    <!-- Botón Enviar -->
+                    <button type="submit" class="form-btn-enviar">Enviar</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Fin de la Sección Formulario de Contacto -->
+
+    <!-- =========================================
+         SECCIÓN: SOMOS FABRICANTES
+         (espejo del Hero 1: contenido a la derecha)
+    ========================================= -->
+    <section class="seccion-fabricantes">
+
+        <!-- Wrapper de la imagen de fondo: define la altura -->
+        <div class="fabricantes-imagen-wrapper">
+            <img src="imgs/banner_6.webp"
+                 alt="Flagship — Somos fabricantes"
+                 class="fabricantes-bg"
+                 loading="lazy">
+        </div>
+
+        <!-- Contenido superpuesto -->
+        <div class="fabricantes-contenido">
+
+            <!-- Mitad izquierda: vacía (deja ver la imagen) -->
+            <div class="fabricantes-mitad-izq"></div>
+
+            <!-- Mitad derecha: título + párrafo + botón -->
+            <div class="fabricantes-mitad-der">
+                <div class="fabricantes-textos">
+
+                    <!-- Título bicolor -->
+                    <h2 class="fabricantes-titulo">
+                        <span class="fabricantes-titulo-morado">Somos</span>
+                        <br>
+                        <span class="fabricantes-titulo-verde">fabricantes</span>
+                    </h2>
+
+                    <!-- Párrafo -->
+                    <p class="fabricantes-parrafo">
+                        Diseñamos, Producimos e imprimimos tus ideas.
+                    </p>
+
+                    <!-- Botón -->
+                    <a href="#contacto" class="fabricantes-btn">Cotiza tu proyecto</a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Fin de la Sección Somos Fabricantes -->
+    
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+    <footer class="footer">
+
+        <!-- Wrapper de los 5 contenedores -->
+        <div class="footer-wrapper">
+
+            <!-- CONTENEDOR 1: Logo -->
+            <div class="footer-grupo footer-grupo-logo">
+                <a href="#hero" class="footer-logo-link" aria-label="Ir al inicio">
+                    <img src="imgs/logo.webp" alt="Flagship" class="footer-logo" loading="lazy">
+                </a>
+            </div>
+
+            <!-- CONTENEDOR 2: Empresa -->
+            <div class="footer-grupo footer-grupo-empresa">
+                <h3 class="footer-titulo">Empresa</h3>
+                <ul class="footer-lista">
+                    <li><a href="#hero" class="footer-link">Inicio</a></li>
+                    <li><a href="#nosotros" class="footer-link">Nosotros</a></li>
+                    <li><a href="#" class="footer-link">Términos y condiciones</a></li>
+                    <li><a href="#" class="footer-link">Política de privacidad</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTENEDOR 3: Productos -->
+            <div class="footer-grupo footer-grupo-productos">
+                <h3 class="footer-titulo">Productos</h3>
+                <ul class="footer-lista">
+                    <li><a href="#" class="footer-link">Banderas publicitarias</a></li>
+                    <li><a href="#" class="footer-link">Roll Up</a></li>
+                    <li><a href="#" class="footer-link">Banner araña</a></li>
+                    <li><a href="#" class="footer-link">Demos Stand</a></li>
+                    <li><a href="#" class="footer-link">Pared publicitaria</a></li>
+                    <li><a href="#" class="footer-link">Impresión en lona</a></li>
+                    <li><a href="#" class="footer-link">Anuncios luminosos</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTENEDOR 4: Contacto -->
+            <div class="footer-grupo footer-grupo-contacto">
+                <h3 class="footer-titulo">Contacto</h3>
+                <ul class="footer-lista footer-lista-contacto">
+                    <li>
+                        <img src="imgs/whatsapp_morado.svg" alt="WhatsApp" class="footer-icono" loading="lazy">
+                        <span class="footer-contacto-texto">55 2480 5342</span>
+                    </li>
+                    <li>
+                        <img src="imgs/correo_morado.svg" alt="Correo" class="footer-icono" loading="lazy">
+                        <span class="footer-contacto-texto">info@flagshipmx.com</span>
+                    </li>
+                    <li>
+                        <img src="imgs/maps_morado.svg" alt="Ubicación" class="footer-icono" loading="lazy">
+                        <span class="footer-contacto-texto">Estado de México, México</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- CONTENEDOR 5: Redes sociales -->
+            <div class="footer-grupo footer-grupo-redes">
+                <a href="#" class="footer-red-link" aria-label="Facebook">
+                    <img src="imgs/facebook_1.svg" alt="Facebook" loading="lazy">
+                </a>
+                <a href="#" class="footer-red-link" aria-label="Instagram">
+                    <img src="imgs/instagram_1.svg" alt="Instagram" loading="lazy">
+                </a>
+                <a href="#" class="footer-red-link" aria-label="TikTok">
+                    <img src="imgs/tiktok_1.svg" alt="TikTok" loading="lazy">
+                </a>
+                <a href="#" class="footer-red-link" aria-label="WhatsApp">
+                    <img src="imgs/whatsapp_1.svg" alt="WhatsApp" loading="lazy">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Línea divisoria verde -->
+        <hr class="footer-hr">
+
+        <!-- Copyright -->
+        <p class="footer-copyright">Copyright © 2026 Flagship todos los derechos reservados</p>
+
+    </footer>
+    <!-- Fin del Footer -->
 
 </body>
 </html>

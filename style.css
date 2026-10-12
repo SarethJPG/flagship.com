@@ -1986,6 +1986,7 @@ section[id] {
         --proceso-circulo-fuente:          1rem;
         --proceso-grupo-titulo-size:       1.05rem;
         --proceso-grupo-max-width:         100%;
+        --proceso-detalle-offset-movil:    1rem;   /* Ajusta a ojo para centrar los 4 detalles en conjunto */
     }
 
     /* Encabezado centrado */
@@ -2028,18 +2029,20 @@ section[id] {
         justify-self: center;
     }
 
-    /* Detalle: círculo + título alineados a la izquierda,
-       pero el bloque completo centrado respecto a la imagen */
+    /* Detalle: ocupa el 100% del ancho del grupo,
+       contenido alineado a la izquierda y los 4
+       desplazados en conjunto con un padding común */
     .proceso-grupo-detalle {
-        justify-content: flex-start;
-        width: fit-content;                              /* ← se ajusta al ancho real de su contenido */
-        margin: var(--proceso-gap-img-detalle) auto 0 auto;  /* ← auto lo centra horizontalmente */
-        padding-left: 0;                                 /* ← anula el offset de desktop */
+        align-self: stretch;                              /* ← ocupa el 100% del ancho del grupo */
+        justify-content: flex-start;                      /* ← contenido pegado a la izquierda */
+        padding-left: var(--proceso-detalle-offset-movil);/* ← offset común para los 4 */
+        margin: var(--proceso-gap-img-detalle) 0 0 0;     /* ← solo margen superior */
     }
-    
-        /* Anula el padding del grupo 4 en móvil */
+
+    /* Anula el padding especial del grupo 4 en móvil
+       para que use el mismo offset que los otros 3 */
     .proceso-arrreglo > .proceso-grupo:nth-child(7) .proceso-grupo-detalle {
-        padding-left: 0;
+        padding-left: var(--proceso-detalle-offset-movil);
     }
     
     /* Título del grupo alineado a la izquierda dentro de su espacio */
@@ -2048,9 +2051,19 @@ section[id] {
         max-width: 10rem;
     }
 
-    /* Flechas next rotadas para apuntar hacia abajo */
+    /* Estado base (con o sin animación) → siempre rotadas */
     .proceso-next {
         transform: rotate(90deg);
+    }
+
+    /* Estado inicial de la animación → rotadas + desplazadas hacia abajo */
+    .proceso-next.anim:not(.visible) {
+        transform: translateY(30px) rotate(90deg);
+    }
+
+    /* Estado final de la animación → rotadas + posición final */
+    .proceso-next.anim.visible {
+        transform: translate(0, 0) scale(1) rotate(90deg);
     }
 }
 

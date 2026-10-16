@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <meta name="author" content="Jurado Flores Santiago @sarethjpg">
+    <title>Página no encontrada — Flagship</title>
+
+    <!-- Google Fonts (Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================= */
+        /* FUENTES LOCALES (subset mínimo)               */
+        /* ============================================= */
+        @font-face {
+            font-family: 'Magistral';
+            src: url('/fonts/magistral/Magistral-Book.woff2') format('woff2'),
+                 url('/fonts/magistral/Magistral-Book.woff') format('woff'),
+                 url('/fonts/magistral/Magistral-Book.ttf') format('truetype');
+            font-weight: 400; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Magistral';
+            src: url('/fonts/magistral/Magistral-BookItalic.woff2') format('woff2'),
+                 url('/fonts/magistral/Magistral-BookItalic.woff') format('woff'),
+                 url('/fonts/magistral/Magistral-BookItalic.ttf') format('truetype');
+            font-weight: 400; font-style: italic; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Magistral';
+            src: url('/fonts/magistral/Magistral-BoldItalic.woff2') format('woff2'),
+                 url('/fonts/magistral/Magistral-BoldItalic.woff') format('woff'),
+                 url('/fonts/magistral/Magistral-BoldItalic.ttf') format('truetype');
+            font-weight: 700; font-style: italic; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Magistral';
+            src: url('/fonts/magistral/Magistral-ExtraBoldItalic.woff2') format('woff2'),
+                 url('/fonts/magistral/Magistral-ExtraBoldItalic.woff') format('woff'),
+                 url('/fonts/magistral/Magistral-ExtraBoldItalic.ttf') format('truetype');
+            font-weight: 800; font-style: italic; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Smile Moon';
+            src: url('/fonts/smile_moon/smile_moon.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+
+        /* ============================================= */
+        /* RESET + ESCALADO                              */
+        /* ============================================= */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: clamp(9px, 0.833vw, 16px);
+        }
+
+        /* ============================================= */
+        /* VARIABLES                                     */
+        /* ============================================= */
+        :root {
+            --color-morado-obscuro: #2b1b66;
+            --color-morado-claro:   #66558c;
+            --color-verde:          #5faf3c;
+            --color-blanco:         #FFFFFF;
+            --color-texto:          #434343;
+            --fuente-principal:     'Magistral', sans-serif;
+            --fuente-terciaria:     'Montserrat', sans-serif;
+        }
+
+        /* ============================================= */
+        /* BASE                                          */
+        /* ============================================= */
+        body {
+            font-family: var(--fuente-terciaria);
+            font-weight: 500;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            background-color: var(--color-blanco);
+            color: var(--color-texto);
+            overflow: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Círculos decorativos de fondo (morado y verde, muy sutiles) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -25%;
+            right: -15%;
+            width: 55rem;
+            height: 55rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(102, 85, 140, 0.10) 0%, rgba(102, 85, 140, 0) 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: -25%;
+            left: -15%;
+            width: 45rem;
+            height: 45rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(95, 175, 60, 0.10) 0%, rgba(95, 175, 60, 0) 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ============================================= */
+        /* CONTENEDOR PRINCIPAL                          */
+        /* ============================================= */
+        .pagina-404 {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 42rem;
+            gap: 1.5rem;
+        }
+
+        /* ============================================= */
+        /* LOGO                                          */
+        /* ============================================= */
+        .logo-404 {
+            width: 12rem;
+            height: auto;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============================================= */
+        /* DECORACIÓN SMILE MOON ("¡Ups!")               */
+        /* ============================================= */
+        .decoracion-smile {
+            font-family: 'Smile Moon', cursive;
+            font-weight: normal;
+            color: var(--color-verde);
+            font-size: 2.4rem;
+            line-height: 1;
+            transform: rotate(-5deg);
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============================================= */
+        /* NÚMERO 404                                    */
+        /* ============================================= */
+        .numero-404 {
+            font-family: var(--fuente-principal);
+            font-style: italic;
+            font-weight: 800;
+            font-size: 10rem;
+            line-height: 0.85;
+            color: var(--color-morado-obscuro);
+            letter-spacing: -0.04em;
+        }
+        .numero-404 .cero {
+            color: var(--color-verde);
+        }
+
+        /* ============================================= */
+        /* TÍTULO                                        */
+        /* ============================================= */
+        .titulo-404 {
+            font-family: var(--fuente-principal);
+            font-style: italic;
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 1.2;
+            color: var(--color-morado-obscuro);
+            max-width: 32rem;
+        }
+
+        /* ============================================= */
+        /* PÁRRAFO                                       */
+        /* ============================================= */
+        .parrafo-404 {
+            font-family: var(--fuente-terciaria);
+            font-weight: 500;
+            font-size: 1.05rem;
+            line-height: 1.55;
+            color: var(--color-morado-obscuro);
+            max-width: 30rem;
+        }
+        .parrafo-404 strong {
+            font-weight: 700;
+            color: var(--color-verde);
+        }
+
+        /* ============================================= */
+        /* BOTÓN                                         */
+        /* ============================================= */
+        .boton-404 {
+            display: inline-block;
+            background-color: var(--color-morado-claro);
+            color: var(--color-blanco);
+            font-family: var(--fuente-terciaria);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.95rem 3rem;
+            border-radius: 50rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 0.5rem;
+        }
+        .boton-404:hover {
+            background-color: var(--color-morado-obscuro);
+            transform: scale(1.03);
+        }
+
+        /* ============================================= */
+        /* RESPONSIVE MÓVIL                              */
+        /* ============================================= */
+                /* ============================================= */
+        /* RESPONSIVE — TABLET / MÓVIL (≤ 768px)         */
+        /* ============================================= */
+        @media (max-width: 768px) {
+
+            html { font-size: 14px; }
+
+            body {
+                padding: 2.5rem 1.5rem;
+            }
+
+            /* Círculos decorativos: más chicos y reubicados */
+            body::before {
+                top: -15%;
+                right: -30%;
+                width: 30rem;
+                height: 30rem;
+            }
+            body::after {
+                bottom: -15%;
+                left: -30%;
+                width: 25rem;
+                height: 25rem;
+            }
+
+            .pagina-404 {
+                gap: 1.2rem;
+                max-width: 100%;
+            }
+
+            .logo-404         { width: 9rem; margin-bottom: 0.3rem; }
+            .decoracion-smile { font-size: 1.8rem; margin-bottom: 0.2rem; }
+            .numero-404       { font-size: 7rem; }
+            .titulo-404       { font-size: 1.4rem; max-width: 100%; }
+            .parrafo-404      { font-size: 0.95rem; max-width: 100%; }
+            .boton-404        { padding: 0.85rem 2.5rem; }
+        }
+
+        /* ============================================= */
+        /* RESPONSIVE — MÓVIL PEQUEÑO (≤ 480px)          */
+        /* ============================================= */
+        @media (max-width: 480px) {
+
+            body {
+                padding: 2rem 1.2rem;
+            }
+
+            .pagina-404 {
+                gap: 1rem;
+            }
+
+            .logo-404         { width: 8rem; }
+            .decoracion-smile { font-size: 1.5rem; }
+            .numero-404       { font-size: 5.5rem; }
+            .titulo-404       { font-size: 1.2rem; }
+            .parrafo-404      { font-size: 0.9rem; line-height: 1.5; }
+            .boton-404        { font-size: 0.95rem; padding: 0.8rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="pagina-404">
+
+        <!-- Logo -->
+        <img src="/imgs/logo.webp" alt="Flagship" class="logo-404">
+
+        <!-- Decoración Smile Moon -->
+        <span class="decoracion-smile">¡Ups!</span>
+
+        <!-- Número 404 -->
+        <p class="numero-404">
+            4<span class="cero">0</span>4
+        </p>
+
+        <!-- Título -->
+        <h1 class="titulo-404">Esta página se nos escapó</h1>
+
+        <!-- Párrafo -->
+        <p class="parrafo-404">
+            En <strong>flagshipmx.com</strong> estamos trabajando para brindarte la mejor experiencia. La página que buscas no existe, fue movida o aún está en construcción.
+        </p>
+
+        <!-- Botón -->
+        <a href="/" class="boton-404">Volver al inicio</a>
+
+    </main>
+
+</body>
+</html>

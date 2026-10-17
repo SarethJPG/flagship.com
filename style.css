@@ -2849,9 +2849,9 @@ section[id] {
         inset: 0;
         background: linear-gradient(
             to bottom,
-            rgba(255, 255, 255, 0.15) 0%,
-            rgba(255, 255, 255, 0.70) 50%,
-            rgba(255, 255, 255, 0.95) 100%
+            rgba(240, 240, 240, 0.10) 0%,
+            rgba(240, 240, 240, 0.20) 50%,
+            rgba(240, 240, 240, 0.300) 100%
         );
         pointer-events: none;
         z-index: 1;
@@ -2878,6 +2878,8 @@ section[id] {
         padding: 0 6% 4rem 6%;
         align-items: center;
         max-width: 100%;
+        background-color: #f0f0f0;
+        padding-top: 3rem;
     }
 
     .formulario-titulo {
@@ -2889,6 +2891,7 @@ section[id] {
     /* ------------------------------------------------- */
     .formulario-form {
         width: 100%;
+
     }
 
     /* Fila doble se apila en columna */
